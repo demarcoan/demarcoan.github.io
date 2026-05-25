@@ -1,0 +1,480 @@
+<head>
+    <!-- 
+        UTF-8 permette di usare correttamente accenti, simboli e caratteri speciali.
+    -->
+    <meta charset="UTF-8">
+
+    <!-- 
+        Questa riga serve per far adattare bene il sito a schermi diversi:
+        computer, tablet e telefoni.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        Titolo che appare nella scheda del browser.
+    -->
+    <title>Andrea de Marco</title>
+
+    <link rel="icon" type="image/png" href="../assets/images/logos/definitiva_cerchio_centered.png">
+
+    <!-- 
+        Collegamento a Google Fonts.
+        Qui stiamo caricando il font Montserrat.
+        Richiede connessione internet.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- 
+        Collegamento al file CSS esterno.
+    -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="internal-page cv-page">
+
+    <!-- 
+        NAVBAR
+    -->
+    <nav class="navbar">
+
+        <div class="navbar-brand">
+            <img 
+                src="../assets/images/logos/definitiva_cerchio_centered.png" 
+                class="navbar-img"
+                alt="Logo"
+            >            
+            
+            <a href="../index.html" class="navbar-logo">Andrea de Marco</a>
+            
+            <img 
+                src="../assets/images/Me/io1.png" 
+                class="navbar-img"
+                alt="Profile picture"
+            >   
+        </div>
+        
+        <button class="navbar-toggle" type="button" aria-label="Open menu">
+            ☰
+        </button>
+
+        <ul class="navbar-menu">
+
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="Bio.html">Bio</a>
+            </li>
+
+            <!-- <li class="dropdown dropdown-research">
+                <a href="research.html" class="dropdown-link dropdown-research-link">Research</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="prjct/project-ddm.html">DDM</a></li>
+                    <li><a href="prjct/project-emulsions.html">Emulsions</a></li>
+                    <li><a href="prjct/project-simulations.html">Simulations</a></li>
+                </ul>
+            </li> -->
+            
+            <li class="dropdown dropdown-cv">
+                <a href="CV.html" class="dropdown-link dropdown-cv-link">CV</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#current-position">Current Position</a></li>
+                    <!--<li><a href="#previous-positions">Previous Positions</a></li>-->
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#teaching">Teaching and Supervising</a></li>
+                    <li><a href="#presentations">Presentations</a></li>
+                    <li><a href="#other-research">Other Research Activities</a></li>
+                    <!-- <li><a href="#outreach">Outreach Activities</a></li> -->
+                </ul>
+            </li>
+
+            <li>
+                <a href="contacts.html">Contacts</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- 
+        CV CONTENT
+        Ogni section è una sezione normale della pagina.
+        Lo scroll è quello naturale del browser.
+    -->
+    <main class="page-mainCV">
+
+        <section id="education" class="page-cv">
+            <h2 class="cv-section-title">Education</h2>
+
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Master of Science in Physics of Matter
+                    </h3>
+                    <span class="cv-entry-place">
+                        Thesis title:
+                    </span>
+                    <span class="cv-entry-th_title">"Wave vectors imaging of Rayleigh-Bénard convection in concentrated emulsions"</span>
+                    
+                    <p class="cv-entry-details">
+                        Supervisors: prof. Matteo Pierno, Daniele Filippi Ph.D. and dott. Giorgio Delfitto 
+                    </p>
+                    <p class="cv-entry-details">
+                        Examiner: prof. Giulio Monaco
+                    </p>
+                    <p class="cv-entry-details">
+                        University of Padova, Sept. 2023
+                    </p>
+                </div>
+            </div>
+
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Bachelor of Science in Physics
+                    </h3>
+                    <span class="cv-entry-place">
+                        Thesis title:
+                    </span>
+                    <span class="cv-entry-th_title">"Time correlations in the wave vectors domain"</span>
+                    
+                    <p class="cv-entry-details">
+                        Supervisors: prof. Matteo Pierno, Daniele Filippi Ph.D.
+                    </p>
+                    <p class="cv-entry-details">
+                        University of Padova, Dec. 2019
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-position" class="page-cv">
+            <h2 class="cv-section-title">Current Position</h2>
+
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        PhD Student
+                    </h3>
+                    <!-- <span class="cv-entry-place">
+                        Thesis title:
+                    </span>
+                    <span class="cv-entry-th_title">""</span> -->
+                    <p class="cv-entry-details">
+                        Project in collaboration with Green Energy Storage S.r.l
+                    </p>
+                    <p class="cv-entry-details">
+                        Supervisors: prof. Matteo Pierno, Daniele Filippi Ph.D.
+                    </p>
+
+                    <p class="cv-entry-details">
+                        University of Padova, Oct. 2023-now
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        <section id="previous-positions" class="page-cv">
+            <h2 class="cv-section-title">Previous Positions</h2>
+
+            <div class="cv-section-content">
+                <p>
+                    Inserisci qui eventuali posizioni precedenti.
+                </p>
+            </div>
+        </section>
+        -->
+
+        <section id="publications" class="page-cv">
+            <h2 class="cv-section-title">Publications</h2>
+
+            <!-- <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        [1]
+                    </h3>
+                    <span class="cv-meta-place">
+                        Authors:
+                    </span>
+                    <span class="cv-meta-auth">"Tizio Caio Sempronio"</span>
+                    
+                    <div class="cv-entry-meta">
+                        <div class="cv-meta-label">Journal:</div>
+                        <div class="cv-meta-value">Paperino</div>
+
+                        <div class="cv-meta-label">Date:</div>
+                        <div class="cv-meta-value">202X</div>
+
+                        <div class="cv-meta-label">DOI:</div>
+                        <div class="cv-meta-value">10.xxxx/xxxxx</div>
+                    </div>
+                </div>
+            </div> -->
+
+        </section>
+
+        <section id="teaching" class="page-cv">
+            <h2 class="cv-section-title">Teaching and Supervising</h2>
+
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Teaching support at Electronics Laboratory
+                    </h3>
+
+                    <p class="cv-entry-details">
+                        for Material Scientists (Bachelor degree)
+                    </p>
+                    <p class="cv-entry-details">
+                        prof. Tiziana Cesca and Boris Kalinic, PhD
+                    </p>
+
+                    <p class="cv-entry-details">
+                        University of Padova, March-May 2025
+                    </p>
+                </div>
+            </div>
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Teaching support at Physics 1 course
+                    </h3>
+
+                    <p class="cv-entry-details">
+                        for Material Scientists (Bachelor degree)
+                    </p>
+                    <p class="cv-entry-details">
+                        prof. Enrico Napolitani
+                    </p>
+
+                    <p class="cv-entry-details">
+                        University of Padova, March-April 2025
+                    </p>
+                </div>
+            </div>
+
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Co-supervision of 3 Bachelor Thesis in Physics
+                    </h3>
+                    <p class="cv-entry-details">
+                        prof. Matteo Pierno
+                    </p>
+                    <p class="cv-entry-details">
+                        University of Padova, Mar. 2023 - Sept. 2025
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="presentations" class="page-cv">
+            <h2 class="cv-section-title">Presentations</h2>
+            <div class="cv-presentation-group">
+                <p class="cv-presentation-category">Contributed Talks:</p>
+
+                <div class="cv-entry">
+                    <p class="cv-presentation-group-talktitle">
+                        [1] Tracking-free monitoring of colloidal particle diffusion in heterogeneous environments
+                    </p>
+                    <span class="cv-presentation-group-conference">
+                        Complex Diffusion in Soft Matter and Beyond
+                    </span>
+                    <span class="cv-presentation-group-conference-details"> - Satellite meeting of IUPAP StatPhys29 </span>
+                    <p class="cv-presentation-group-location">
+                        July 2025, Capri - Italy
+                    </p>
+                </div>
+
+                <div class="cv-entry">
+                    <p class="cv-presentation-group-talktitle">
+                        [2] Complex Diffusion of colloidal tracers within ordered and disordered arrays of micropillars
+                    </p>
+                    <p class="cv-presentation-group-conference">
+                        International Soft Matter Conference 2025 (ISMC 2025, 9th edition)
+                    </p>
+                    <p class="cv-presentation-group-location">
+                        September 2025, Platanias, Crete - Greece
+                    </p>
+                </div>
+
+                <div class="cv-entry">
+                    <p class="cv-presentation-group-talktitle">
+                        [3] Convective Instabilities in Concentrated Emulsions: A Side View within Conined Walls
+                    </p>
+                    <span class="cv-presentation-group-conference">
+                        International Symposium on Flowing droplets
+                    </span>
+                    <span class="cv-presentation-group-conference-details"> - Where Fluid Mechanics and Rheology meet Soft Matter for Industrial applications</span>
+                    <p class="cv-presentation-group-location">
+                        April 2026, Naples - Italy
+                    </p>
+                </div>
+            </div>
+
+            <div class="cv-presentation-group">
+                <p class="cv-presentation-category">Posters:</p>
+
+                <div class="cv-entry">
+                    <p class="cv-presentation-group-talktitle">
+                        [1] Tracking-free monitoring of colloidal particle diffusion in heterogeneous environments
+                    </p>
+                    <span class="cv-presentation-group-conference">
+                        Complex Diffusion in Soft Matter and Beyond
+                    </span>
+                    <span class="cv-presentation-group-conference-details"> - Satellite meeting of IUPAP StatPhys29 </span>
+                    <p class="cv-presentation-group-location">
+                        July 2025, Capri - Italy
+                    </p>
+                </div>
+
+                <div class="cv-entry">
+                    <p class="cv-presentation-group-talktitle">
+                        [2] Complex Diffusion of colloidal tracers within ordered and disordered arrays of micropillars
+                    </p>
+                    <p class="cv-presentation-group-conference">
+                        Vienna Soft Matter Day 2025
+                    </p>
+                    <p class="cv-presentation-group-location">
+                        November 2025, Vienna - Austria
+                    </p>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="other-research" class="page-cv">
+            <h2 class="cv-section-title">Other Research Activities</h2>
+
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Organization of PhD Days 2026 for Material Science and Technology Doctoral School
+                    </h3>
+                    <p class="cv-entry-details">
+                        Organizers: Andrea de Marco, R. Anversa, S. Marchetti, M. Barbieri, A. Andreetto, T. Sekulić, S. Agnoli
+                    </p>
+                    <p class="cv-entry-details">
+                        Invited Speakers: R. Cerbino (University of Vienna), Giorgia Daniel (FIAMM Energy Technology S.p.A.), Elia Scattolo (Fondazione Bruno Kessler)
+                    </p>
+                    <p class="cv-entry-details">
+                        30th June - 2nd July 2026, Padova
+                    </p>
+                    <p class="cv-entry-details">
+                        University of Padova
+                    </p>
+                </div>
+            </div>
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Organization of Bio-Soft Seminars for young researchers
+                    </h3>
+                    <p class="cv-entry-details">
+                        Organizers: Vittoria Sposini, Francesco Arceri and Andrea de Marco
+                    </p>
+                    <p class="cv-entry-details">
+                        May 2026 - now
+                    </p>
+                    <p class="cv-entry-details">
+                        University of Padova
+                    </p>
+                </div>
+            </div>
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                        <h3 class="cv-entry-title">
+                            6 months visiting period at University of Vienna
+                        </h3>
+                        <p class="cv-entry-details-bold">
+                            Topic: Sizing and Rheology of Nanoemulsions with Interdroplet Interaction Potentials
+                        </p>
+                        <p class="cv-entry-details">
+                            Supervisors: Matteo Pierno, Roberto Cerbino
+                        </p>
+                        <p class="cv-entry-details">
+                            6th October 2025 - 6th April 2026, Padova
+                        </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="outreach" class="page-cv">
+            <h2 class="cv-section-title">Outreach Activities</h2>
+
+            <div class="cv-section-content">
+                <p>
+                </p>
+            </div>
+        </section> -->
+
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script>
+        const navbar = document.querySelector(".navbar");
+        const navbarToggle = document.querySelector(".navbar-toggle");
+
+        const dropdownCV = document.querySelector(".dropdown-cv");
+        const dropdownCVLink = document.querySelector(".dropdown-cv-link");
+
+        const dropdownResearch = document.querySelector(".dropdown-research");
+        const dropdownResearchLink = document.querySelector(".dropdown-research-link");
+
+        const backToTop = document.querySelector(".back-to-top");
+
+        navbarToggle.addEventListener("click", function () {
+            navbar.classList.toggle("open");
+        });
+
+        dropdownCVLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownCV.classList.toggle("open");
+                dropdownResearch.classList.remove("open");
+            }
+        });
+
+        dropdownResearchLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownResearch.classList.toggle("open");
+                dropdownCV.classList.remove("open");
+            }
+        });
+
+        /*
+            BACK TO TOP
+            La freccia compare dopo un po' di scroll
+            e riporta in cima alla pagina.
+        */
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                backToTop.classList.add("is-visible");
+            } else {
+                backToTop.classList.remove("is-visible");
+            }
+        });
+
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+</body>
