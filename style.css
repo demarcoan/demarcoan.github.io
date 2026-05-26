@@ -1131,7 +1131,7 @@
 
 
         .cv-section-title {
-            width: clamp(420px, 42vw, 600px);
+            width: clamp(420px, 42vw, 650px);
             font-size: 40px;
         }
 
