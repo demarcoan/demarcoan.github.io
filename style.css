@@ -76,7 +76,8 @@ header {
         Limita la larghezza massima del contenuto dell'header,
         in modo simile al main.
     */
-    max-width: 900px;
+    width: min(92vw, 1100px);
+    max-width: none;
 
     /* 
         Centra il contenitore nella pagina.
@@ -109,7 +110,7 @@ header {
     la posizione del testo. Quindi il testo resta davvero centrato.
 */
 .header-logo {
-    width: 150px;
+    width: clamp(90px, 11vw, 150px);
     height: auto;
 
     /* 
@@ -133,7 +134,7 @@ header {
 }
 
 .header-profilepic {
-    width: 150px;
+    width: clamp(90px, 11vw, 150px);
     height: auto;
 
     /* 
@@ -207,7 +208,7 @@ header {
     /* 
         Spazio interno della navbar.
     */
-    padding: 10px 50px;
+    padding: 10px clamp(18px, 4vw, 50px);
 
     /* 
         Colore di sfondo.
@@ -263,7 +264,7 @@ header {
     /* 
         Spazio tra i link.
     */
-    gap: 28px;
+    gap: clamp(16px, 2vw, 28px);
 
     /* 
         Rimuove margini e padding automatici della lista.
@@ -395,7 +396,7 @@ main {
     /* 
         Impedisce al contenuto di diventare troppo largo su schermi grandi.
     */
-    max-width: 900px;
+    width: min(88vw, 1100px);
 
     /* 
         40px sopra e sotto.
@@ -494,7 +495,7 @@ footer ud{
 */
 
 .page-main {
-    max-width: 1000px;
+    max-width: min(88vw, 1100px);
     margin: 0 auto;
     padding: 1rem 1.5rem;
 }
@@ -584,7 +585,7 @@ html {
     box-sizing: border-box;
     
     margin: 0;
-    padding-left: 50px;
+    padding-left: clamp(28px, 4.7vw, 70px);
     
     background-color: #eeeeee;
 }
@@ -598,11 +599,11 @@ html {
 }
 
 .cv-section-title {
-    width: 400px;
+    width: clamp(320px, 37.5vw, 520px);
     box-sizing: border-box;
 
-    margin-left: -50px;
-    padding: 50px 20px 5px 0;
+    margin-left: calc(-1 * clamp(28px, 4.7vw, 70px));
+    padding: clamp(42px, 4.7vw, 64px) 20px 5px 0;
 
     background-color: #eeeeee;
     color: #253D8B;
@@ -618,7 +619,8 @@ html {
 }
 
 .cv-section-content {
-    max-width: 900px;
+    width: min(90vw, 1000px);
+    max-width: none;
     margin: 0 auto;
     padding: 40px 24px 0px 24px;
 
@@ -1016,6 +1018,53 @@ html {
         transform: translateX(-50%);
     }
 }
+
+/* Schermi Piccoli */
+@media (min-width: 701px) and (max-width: 1100px) {
+    main {
+        width: min(92vw, 1000px);
+    }
+
+    .page-main {
+        width: min(92vw, 1000px);
+    }
+
+    .header-content {
+        width: min(94vw, 1000px);
+        max-width: none;
+    }
+
+    .header-logo,
+    .header-profilepic {
+        width: clamp(90px, 10vw, 130px);
+    }
+
+    .header-text h1 {
+        font-size: clamp(26px, 3vw, 30px);
+    }
+
+    .header-text p {
+        font-size: clamp(15px, 2vw, 18px);
+    }
+
+    .navbar {
+        padding-left: clamp(20px, 3vw, 40px);
+        padding-right: clamp(20px, 3vw, 40px);
+    }
+
+    .navbar-menu {
+        gap: clamp(14px, 1.8vw, 24px);
+    }
+
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map {
+        height: 360px;
+    }
+}
+
 
 /* 
     Stile utile per schermi piccoli, tipo smartphone.
