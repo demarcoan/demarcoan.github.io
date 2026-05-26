@@ -434,8 +434,8 @@
         const dropdownCV = document.querySelector(".dropdown-cv");
         const dropdownCVLink = document.querySelector(".dropdown-cv-link");
 
-        const dropdownResearch = document.querySelector(".dropdown-research");
-        const dropdownResearchLink = document.querySelector(".dropdown-research-link");
+        // const dropdownResearch = document.querySelector(".dropdown-research");
+        // const dropdownResearchLink = document.querySelector(".dropdown-research-link");
 
         const backToTop = document.querySelector(".back-to-top");
 
@@ -447,17 +447,17 @@
             if (window.innerWidth <= 700) {
                 event.preventDefault();
                 dropdownCV.classList.toggle("open");
-                dropdownResearch.classList.remove("open");
+                // dropdownResearch.classList.remove("open");
             }
         });
 
-        dropdownResearchLink.addEventListener("click", function (event) {
-            if (window.innerWidth <= 700) {
-                event.preventDefault();
-                dropdownResearch.classList.toggle("open");
-                dropdownCV.classList.remove("open");
-            }
-        });
+        // dropdownResearchLink.addEventListener("click", function (event) {
+        //     if (window.innerWidth <= 700) {
+        //         event.preventDefault();
+        //         dropdownResearch.classList.toggle("open");
+        //         dropdownCV.classList.remove("open");
+        //     }
+        // });
 
         /*
             BACK TO TOP
