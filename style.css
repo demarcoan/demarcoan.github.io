@@ -508,7 +508,7 @@
     footer {
         text-align: center;
         font-size: 14px;
-        padding: 10px;
+        padding: 0pc;
         background-color: #ddd;
     }
 
@@ -1973,10 +1973,12 @@
 
         footer {
             font-size: 13px;
-            padding: 14px 12px;
+            padding-top: 14px;
+            text-align: center;
+
         }
 
         .footer-item{
-            text-align: justify;
+            text-align: center;
         }
     }
