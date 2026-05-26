@@ -199,27 +199,12 @@
         </div>
     </main>
 
-    <!-- 
-        FOOTER = fondo della pagina.
-        Di solito contiene copyright, contatti, link secondari o informazioni legali.
-    -->
-    <footer>
-        <div class="contact-item">
-            <a class="contact-email" 
-               href="mailto:andrea.demarco.research@gmail.com">
-               andrea.demarco.research@gmail.com
-            </a>
-        </div>
-        <ud>
-        <p>Last updated: June 2026</p></ud>
-    </footer>
+    <div data-include="components/footer.html"></div>
 
     <!-- 
         Collegamento al file JavaScript esterno.
         Lo mettiamo alla fine del body perché così la pagina HTML viene caricata prima.
     -->
-    <script src="script.js"></script>
-
     <script>
         const navbar = document.querySelector(".navbar");
         const navbarToggle = document.querySelector(".navbar-toggle");
@@ -250,4 +235,6 @@
             }
         });
     </script>
+    
+    <script src="script.js"></script>
 </body>
