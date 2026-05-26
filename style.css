@@ -8,7 +8,7 @@
     * {
         box-sizing: border-box;
     }
-
+    
     /* 
         Stile generale della pagina.
         Il body rappresenta tutto ciò che si vede nel browser.
@@ -307,6 +307,19 @@
         color: #cccccc;
     }
 
+    /* 
+    HOME PAGE
+    Tiene il footer in fondo anche su monitor grandi.
+    */
+    .home-page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-page main {
+        flex: 1;
+    }
     /* Homepage: nasconde immagine + nome nella navbar */
     .home-page .navbar-brand {
         display: none;
