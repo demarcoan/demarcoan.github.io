@@ -446,6 +446,21 @@
         border-radius: 12px;
     }
 
+    .main-intro-smile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(24px, 3vw, 32px);
+        align-items: stretch;
+    }
+
+    .main-img-smile {
+        width: 100%;
+        aspect-ratio: 1;
+        max-height: 520px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
     /* 
         Ogni section è una "card" bianca.
     */
