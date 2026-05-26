@@ -1,0 +1,16 @@
+# Roba locale / archivio / bozze
+assets_all/
+Old/
+ppt/
+pages/prjct/
+
+# File locali
+Buffercode.txt
+Note
+
+# File inutili di sistema
+.DS_Store
+Thumbs.db
+
+# Opzionale: impostazioni locali VS Code
+.vscode/
