@@ -1574,7 +1574,6 @@
 
         /*
             HOMEPAGE MOBILE
-            Qui prima non funzionava perché .main-intro è grid, non flex.
         */
         .main-intro {
             display: grid;
@@ -1596,6 +1595,7 @@
             grid-template-columns: 1fr;
             gap: 18px;
             align-items: start;
+            
         }
 
         .main-img-smile {
@@ -1628,9 +1628,9 @@
             BIO MOBILE
         */
         .bio-text {
+            text-align: justify;
             padding-left: 0;
             padding-right: 0;
-            text-align: justify;
         }
 
         .bio-intro {
