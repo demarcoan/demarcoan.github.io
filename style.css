@@ -1071,6 +1071,11 @@
         }
     }
 
+    @media (min-width: 1100px) {
+    .cv-section-title {
+        width: clamp(420px, 42vw, 650px);
+    }
+}
 
     /* 
         Stile utile per schermi piccoli, tipo smartphone.
