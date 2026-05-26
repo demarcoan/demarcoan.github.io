@@ -1071,12 +1071,67 @@
         }
     }
 
+    /* Desktop grande*/
     @media (min-width: 1100px) {
         .cv-section-title {
             width: clamp(420px, 42vw, 650px);
             font-size: 40px;
         }
 
+        .cv-entry-title {
+            margin: 0 0 6px 0;
+
+            color: #253D8B;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.25;
+            text-align: left;
+        }
+
+        .cv-entry-place {
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1.5;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .cv-entry-th_title {
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 2.5;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .cv-entry-details {
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.5;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .cv-entry-details-bold{
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.5;
+            padding-left: 30px;
+            text-align: left;
+        }
+        
         .navbar {
             padding: 10px clamp(18px, 4vw, 50px);
         }
