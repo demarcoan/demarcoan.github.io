@@ -1591,6 +1591,22 @@
             order: 2;
         }
 
+        .main-intro-smile {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .main-img-smile {
+            width: 100%;
+            aspect-ratio: 1;
+            max-height: 360px;
+            object-fit: contain;
+            order: 2;
+            border-radius: 12px;
+        }
+
         .main-intro section {
             order: 1;
         }
