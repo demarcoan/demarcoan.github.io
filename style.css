@@ -55,7 +55,7 @@ body {
 header {
     background-color: #253D8B;
     color: white;
-    padding: 60px 20px;
+    padding: clamp(42px, 5.6vw, 60px) 20px;
     text-align: center;
 
     /* 
@@ -76,7 +76,7 @@ header {
         Limita la larghezza massima del contenuto dell'header,
         in modo simile al main.
     */
-    width: min(92vw, 1100px);
+    width: min(92vw, 900px);
     max-width: none;
 
     /* 
@@ -110,7 +110,8 @@ header {
     la posizione del testo. Quindi il testo resta davvero centrato.
 */
 .header-logo {
-    width: clamp(90px, 11vw, 150px);
+    width: min(14vw, 150px);
+    max-width: 150px;
     height: auto;
 
     /* 
@@ -134,7 +135,8 @@ header {
 }
 
 .header-profilepic {
-    width: clamp(90px, 11vw, 150px);
+    width: min(14vw, 150px);
+    max-width: 150px;
     height: auto;
 
     /* 
@@ -396,7 +398,7 @@ main {
     /* 
         Impedisce al contenuto di diventare troppo largo su schermi grandi.
     */
-    width: min(88vw, 1100px);
+    width: min(88vw, 900px);
 
     /* 
         40px sopra e sotto.
@@ -416,7 +418,7 @@ main {
 .main-intro {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: clamp(24px, 3vw, 32px);
     align-items: stretch;
 }
 
@@ -426,6 +428,7 @@ main {
 .main-img {
     width: 100%;
     height: 100%;
+    max-height: 520px;
     object-fit: cover;
     border-radius: 12px;
 }
@@ -495,7 +498,7 @@ footer ud{
 */
 
 .page-main {
-    max-width: min(88vw, 1100px);
+    width: min(88vw, 1000px);
     margin: 0 auto;
     padding: 1rem 1.5rem;
 }
@@ -585,7 +588,7 @@ html {
     box-sizing: border-box;
     
     margin: 0;
-    padding-left: clamp(28px, 4.7vw, 70px);
+    padding-left: clamp(32px, 4.7vw, 50px);
     
     background-color: #eeeeee;
 }
@@ -599,11 +602,11 @@ html {
 }
 
 .cv-section-title {
-    width: clamp(320px, 37.5vw, 520px);
+    width: clamp(320px, 37.5vw, 400px);
     box-sizing: border-box;
 
-    margin-left: calc(-1 * clamp(28px, 4.7vw, 70px));
-    padding: clamp(42px, 4.7vw, 64px) 20px 5px 0;
+    margin-left: calc(-1 * clamp(32px, 4.7vw, 50px));
+    padding: 50px 20px 5px 0;
 
     background-color: #eeeeee;
     color: #253D8B;
@@ -619,7 +622,7 @@ html {
 }
 
 .cv-section-content {
-    width: min(90vw, 1000px);
+    width: min(84vw, 900px);
     max-width: none;
     margin: 0 auto;
     padding: 40px 24px 0px 24px;
@@ -659,7 +662,7 @@ html {
     margin: 0;
 
     color: #253D8B;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 2.5;
     text-align: left;
@@ -1019,49 +1022,37 @@ html {
     }
 }
 
-/* Schermi Piccoli */
+/* Desktop piccolo / laptop: mantiene il layout vicino al riferimento 1064px */
 @media (min-width: 701px) and (max-width: 1100px) {
     main {
-        width: min(92vw, 1000px);
+        width: min(88vw, 900px);
     }
 
     .page-main {
-        width: min(92vw, 1000px);
+        width: min(88vw, 1000px);
     }
 
     .header-content {
-        width: min(94vw, 1000px);
+        width: min(92vw, 900px);
         max-width: none;
     }
 
     .header-logo,
     .header-profilepic {
-        width: clamp(90px, 10vw, 130px);
+        width: min(12vw, 130px);
+        max-width: 130px;
     }
 
-    .header-text h1 {
-        font-size: clamp(26px, 3vw, 30px);
-    }
-
-    .header-text p {
-        font-size: clamp(15px, 2vw, 18px);
-    }
-
-    .navbar {
-        padding-left: clamp(20px, 3vw, 40px);
-        padding-right: clamp(20px, 3vw, 40px);
-    }
-
-    .navbar-menu {
-        gap: clamp(14px, 1.8vw, 24px);
+    .main-img {
+        max-height: 480px;
     }
 
     .contact-section {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1.2fr 1fr;
     }
 
     .contact-map {
-        height: 360px;
+        height: 420px;
     }
 }
 
