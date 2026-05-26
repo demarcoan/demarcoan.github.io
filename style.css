@@ -757,7 +757,7 @@
     }
 
     .cv-presentation-group {
-        width: min(84vw, 900px);
+        width: min(100vw, 1000px);
         margin: 0 auto 5px auto;
         padding: 0 24px;
     }
