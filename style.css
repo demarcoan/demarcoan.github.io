@@ -1101,12 +1101,14 @@
         }
 
         .bio-intro {
+            padding-top: 60pix;
             text-align: center;
             font-size: 24px;
         }
 
         .bio-text {
             text-align: justify;
+            padding-top: 10pix;
             padding-left: 10%;
             padding-right: 10%;
             font-size: 18px;
