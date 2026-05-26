@@ -1131,7 +1131,7 @@
 
 
         .cv-section-title {
-            width: clamp(420px, 42vw, 800px);
+            width: clamp(420px, 42vw, 700px);
             font-size: 40px;
         }
 
@@ -1198,6 +1198,86 @@
             line-height: 1.5;
             padding-left: 30px;
             text-align: left;
+        }  
+
+        .cv-presentation-group {
+            width: min(100vw, 1200px);
+            margin: 0 auto 5px auto;
+            padding: 0 24px;
+        }
+
+        .cv-presentation-category {
+            max-width: none;
+            margin: 0;
+            padding: 40px 0 20px 0;
+
+            color: #253D8B;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+            text-align: left;
+
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .cv-presentation-category::before {
+            content: "•";
+            flex: 0 0 auto;
+            font-size: 25px;
+            line-height: 0.7;
+        }
+
+        .cv-presentation-group-talktitle{
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 20px;
+            font-weight: 600;
+            
+            line-height: 1.5;
+            padding-left: 50px;
+            text-align: left;
+        }
+
+        .cv-presentation-group-location{
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 17px;
+            font-weight: 600;
+            
+            line-height: 1.5;
+            padding-left: 70px;
+            padding-bottom: 20px;
+            text-align: left;
+        }
+
+        .cv-presentation-group-conference{
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 17px;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.5;
+            padding-left: 70px;
+            text-align: left;
+        }
+
+        .cv-presentation-group-conference-details{
+            margin: 0;
+
+            color: #253D8B;
+            font-size: 17px;
+            font-weight: 200;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .cv-presentation-group .cv-entry {
+            padding-left: 22px;
         }
         
         .back-to-top {
