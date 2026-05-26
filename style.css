@@ -1072,10 +1072,26 @@
     }
 
     @media (min-width: 1100px) {
-    .cv-section-title {
-        width: clamp(420px, 42vw, 650px);
+        .cv-section-title {
+            width: clamp(420px, 42vw, 650px);
+        }
+
+        .navbar {
+            padding: 10px clamp(18px, 4vw, 50px);
+        }
+
+        .navbar-logo {
+            font-size: 15px;
+        }
+
+        .navbar-menu a {
+            font-size: 12px;
+        }
+
+        .navbar-img {
+            width: 30px;
+        }
     }
-}
 
     /* 
         Stile utile per schermi piccoli, tipo smartphone.
