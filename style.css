@@ -1074,7 +1074,7 @@
     /* Desktop grande*/
     @media (min-width: 1100px) {
         .cv-section-title {
-            width: clamp(420px, 42vw, 650px);
+            width: clamp(420px, 42vw, 800px);
             font-size: 40px;
         }
 
