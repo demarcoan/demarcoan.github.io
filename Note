@@ -1,0 +1,36 @@
+I commenti cambiano sintassi a seconda del file.
+
+In HTML:
+<!-- Questo è un commento HTML -->
+
+In CSS:
+/* Questo è un commento CSS */
+
+In JavaScript:
+// Questo è un commento JavaScript su una sola riga
+
+/*
+    Questo è un commento JavaScript
+    su più righe.
+*/
+
+
+Per Montserrat abbiamo fatto due cose:
+
+Nel file HTML abbiamo caricato il font:
+<link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" 
+    rel="stylesheet"
+>
+
+Nel CSS lo abbiamo usato:
+font-family: "Montserrat", sans-serif;
+
+Quindi il ragionamento è:
+
+HTML carica il font
+CSS lo applica alla pagina
+
+Nota solo una cosa: usando Google Fonts, il font viene scaricato da internet. 
+Se un giorno vuoi un sito completamente indipendente anche offline, 
+si può fare anche con i file del font salvati localmente nella cartella del progetto.

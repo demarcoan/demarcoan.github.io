@@ -1,0 +1,581 @@
+<head>
+    <!-- 
+        UTF-8 permette di usare correttamente accenti, simboli e caratteri speciali.
+    -->
+    <meta charset="UTF-8">
+
+    <!-- 
+        Questa riga serve per far adattare bene il sito a schermi diversi:
+        computer, tablet e telefoni.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        Titolo che appare nella scheda del browser.
+    -->
+    <title>Andrea de Marco</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/definitiva_cerchio_centered.png">
+    <!-- 
+        Collegamento a Google Fonts.
+        Qui stiamo caricando il font Montserrat.
+        Richiede connessione internet.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- 
+        Collegamento al file CSS esterno.
+        Tutto lo stile della pagina lo scriveremo in style.css.
+    -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="internal-page cv-page">
+    <!-- 
+    NAVBAR = barra di navigazione principale del sito.
+    Contiene i link alle altre pagine.
+    -->
+    <nav class="navbar">
+
+        <div class="navbar-brand">
+            <img 
+                src="../assets/images/logos/definitiva_cerchio_centered.png" 
+                class="navbar-img"
+                alt="Profile picture"
+            >            
+            
+            <a href="../index.html" class="navbar-logo">Andrea de Marco</a>
+            
+            <img 
+                src="../assets/images/Me/io1.png" 
+                class="navbar-img"
+                alt="Profile picture"
+            >   
+        </div>
+        
+        <button class="navbar-toggle" type="button" aria-label="Open menu">
+            ☰
+        </button>
+
+        <ul class="navbar-menu">
+
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="Bio.html">Bio</a>
+            </li>
+
+            <li class="dropdown dropdown-research">
+
+                <a href="research.html" class="dropdown-link dropdown-research-link">Research</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="prjct/project-ddm.html">DDM</a></li>
+                    <li><a href="prjct/project-emulsions.html">Emulsions</a></li>
+                    <li><a href="prjct/project-simulations.html">Simulations</a></li>
+                </ul>
+
+            </li>
+            
+            <li class="dropdown dropdown-cv">
+                <a href="CV.html" class="dropdown-link dropdown-cv-link">CV</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="CV.html#education">Education</a></li>
+                    <li><a href="CV.html#current-position">Current Position</a></li>
+                    <!--<li><a href="CV.html#previous-positions">Previous Positions</a></li>-->
+                    <li><a href="CV.html#publications">Publications</a></li>
+                    <li><a href="CV.html#teaching">Teaching and Supervising</a></li>
+                    <li><a href="CV.html#presentations">Presentations</a></li>
+                    <li><a href="CV.html#other-research">Other Research Activities</a></li>
+                    <li><a href="CV.html#outreach">Outreach Activities</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="contacts.html">Contacts</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main class="page-mainCV">
+        <div class="cv-viewer">
+
+            <div class="cv-title-bar" id="cvTitleBar"></div>
+
+            <div class="cv-text-wrapper">
+
+                <button class="cv-nav-arrow cv-nav-up" id="cvNavUp" aria-label="Previous section">
+                    ↑
+                </button>
+
+                <div class="cv-text-window" id="cvTextWindow">
+                    <div class="cv-text-content" id="cvTextContent"></div>
+                </div>
+
+                <button class="cv-nav-arrow cv-nav-down" id="cvNavDown" aria-label="Next section">
+                    ↓
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="cv-source" id="cvSource">
+            <div class="cv-title-bar">
+                Education
+            </div>
+            <section id="education" class="page-cv">
+                <h2 class="cv-section-title">Education</h2>
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                </p>
+            </section>
+
+            <section id="current-position" class="page-cv">
+                <h2 class="cv-section-title">Current Position</h2>
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                </p>
+            </section>
+
+            <!--<section id="previous-position" class="page-cv">
+                <h2 class="cv-section-title">Previous Positions</h2> 
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                </p>
+            </section>-->
+            <section id="publications" class="page-cv">
+                <h2 class="cv-section-title">Publications</h2>
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                </p>
+            </section>
+
+            <section id="teaching" class="page-cv">
+                <h2 class="cv-section-title">Teaching and Supervising</h2>
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                </p>
+            </section>
+
+            <section id="presentations" class="page-cv">
+                <h2 class="cv-section-title">Presentations</h2>
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                </p>
+            </section>
+
+            <section id="other-research" class="page-cv">
+                <h2 class="cv-section-title">Other Research Activities</h2>
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                </p>
+            </section>
+
+            <section id="outreach" class="page-cv">
+                <h2 class="cv-section-title">Outreach Activities</h2>
+                <p>
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                    woijefweijf woijefweijf woijefweijf woijefweijf woijefweijf 
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const navUp = document.getElementById("cvNavUp");
+        const navDown = document.getElementById("cvNavDown");
+
+        function updateNavArrows() {
+            if (currentIndex > 0) {
+                navUp.classList.add("is-visible");
+            } else {
+                navUp.classList.remove("is-visible");
+            }
+
+            if (currentIndex < cvSections.length - 1) {
+                navDown.classList.add("is-visible");
+            } else {
+                navDown.classList.remove("is-visible");
+            }
+        }
+
+        const sourceSections = document.querySelectorAll("#cvSource .page-cv");
+
+        const titleBar = document.getElementById("cvTitleBar");
+        const textWindow = document.getElementById("cvTextWindow");
+        const textContent = document.getElementById("cvTextContent");
+
+        const cvSections = Array.from(sourceSections).map(section => {
+            const title = section.querySelector("h2").textContent.trim();
+            const content = section.querySelector("p").innerHTML;
+
+            return {
+                id: section.id,
+                title: title,
+                content: content
+            };
+        });
+
+        let currentIndex = 0;
+        let isChanging = false;
+
+        let sectionChangeTimer = null;
+
+        function showSection(index) {
+            if (index < 0 || index >= cvSections.length) return;
+
+            currentIndex = index;
+            updateNavArrows();
+
+            titleBar.classList.add("is-changing");
+            textContent.classList.add("is-changing");
+
+            clearTimeout(sectionChangeTimer);
+
+            sectionChangeTimer = setTimeout(() => {
+                titleBar.textContent = cvSections[currentIndex].title;
+                textContent.innerHTML = cvSections[currentIndex].content;
+
+                textWindow.scrollTop = 0;
+
+                titleBar.classList.remove("is-changing");
+                textContent.classList.remove("is-changing");
+            }, 250);
+        }
+
+        function showSectionById(sectionId) {
+            const index = cvSections.findIndex(section => section.id === sectionId);
+
+            if (index !== -1) {
+                showSection(index);
+            }
+        }
+
+        function goToNextSection() {
+            showSection(currentIndex + 1);
+        }
+
+        function goToPreviousSection() {
+            showSection(currentIndex - 1);
+        }
+
+        navDown.addEventListener("click", function() {
+            if (!isChanging && currentIndex < cvSections.length - 1) {
+                isChanging = true;
+                goToNextSection();
+
+                setTimeout(() => {
+                    isChanging = false;
+                }, 500);
+            }
+        });
+
+        navUp.addEventListener("click", function() {
+            if (!isChanging && currentIndex > 0) {
+                isChanging = true;
+                goToPreviousSection();
+
+                setTimeout(() => {
+                    isChanging = false;
+                }, 500);
+            }
+        });
+
+        let trackpadLock = false;
+        let trackpadUnlockTimer = null;
+        let trackpadEdgeAmount = 0;
+
+        let lastWheelTime = 0;
+
+        const TRACKPAD_EDGE_THRESHOLD = 60;
+        const TRACKPAD_QUIET_TIME = 260;
+        const TRACKPAD_DELTA_MAX = 25;
+        const TRACKPAD_TIME_MAX = 40;
+
+        function isProbablyTrackpad(event) {
+            const now = performance.now();
+            const timeFromLastWheel = now - lastWheelTime;
+            lastWheelTime = now;
+
+            const smallDelta = Math.abs(event.deltaY) <= TRACKPAD_DELTA_MAX;
+            const veryFrequent = timeFromLastWheel <= TRACKPAD_TIME_MAX;
+
+            /*
+                Trackpad = eventi piccoli e molto ravvicinati.
+                Mouse = scatti più separati oppure delta più grandi.
+            */
+            return event.deltaMode === 0 && smallDelta && veryFrequent;
+        }
+
+        function unlockTrackpadAfterInertiaStops() {
+            clearTimeout(trackpadUnlockTimer);
+
+            trackpadUnlockTimer = setTimeout(() => {
+                trackpadLock = false;
+                trackpadEdgeAmount = 0;
+            }, TRACKPAD_QUIET_TIME);
+        }
+
+        textWindow.addEventListener("wheel", function(event) {
+            const delta = event.deltaY;
+
+            const maxScroll =
+                textWindow.scrollHeight - textWindow.clientHeight;
+
+            const atTop =
+                textWindow.scrollTop <= 2;
+
+            const atBottom =
+                textWindow.scrollTop >= maxScroll - 2;
+
+            const scrollingDown = delta > 0;
+            const scrollingUp = delta < 0;
+
+            const trackpadLike = isProbablyTrackpad(event);
+
+            /*
+                Se sto scrollando dentro il testo, lascio fare al browser.
+                Qui mouse e trackpad devono essere fluidi.
+            */
+            if (scrollingDown && !atBottom) {
+                trackpadEdgeAmount = 0;
+                return;
+            }
+
+            if (scrollingUp && !atTop) {
+                trackpadEdgeAmount = 0;
+                return;
+            }
+
+            /*
+                Da qui sono al bordo.
+                Blocco lo scroll naturale perché voglio cambiare sezione.
+            */
+            event.preventDefault();
+
+            /*
+                MOUSE:
+                niente lock, niente inerzia, niente threshold.
+                Ogni scatto cambia una sezione.
+            */
+            if (!trackpadLike) {
+                trackpadLock = false;
+                trackpadEdgeAmount = 0;
+
+                if (scrollingDown && currentIndex < cvSections.length - 1) {
+                    showSection(currentIndex + 1);
+                }
+
+                if (scrollingUp && currentIndex > 0) {
+                    showSection(currentIndex - 1);
+                }
+
+                return;
+            }
+
+            /*
+                TRACKPAD:
+                se ho appena cambiato sezione, blocco l'inerzia residua.
+            */
+            if (trackpadLock) {
+                unlockTrackpadAfterInertiaStops();
+                return;
+            }
+
+            trackpadEdgeAmount += Math.abs(delta);
+
+            if (trackpadEdgeAmount < TRACKPAD_EDGE_THRESHOLD) {
+                return;
+            }
+
+            if (scrollingDown && currentIndex < cvSections.length - 1) {
+                trackpadEdgeAmount = 0;
+                trackpadLock = true;
+
+                showSection(currentIndex + 1);
+                unlockTrackpadAfterInertiaStops();
+
+                return;
+            }
+
+            if (scrollingUp && currentIndex > 0) {
+                trackpadEdgeAmount = 0;
+                trackpadLock = true;
+
+                showSection(currentIndex - 1);
+                unlockTrackpadAfterInertiaStops();
+
+                return;
+            }
+
+            trackpadEdgeAmount = 0;
+
+        }, { passive: false });
+
+
+        document.querySelectorAll("[data-cv-target]").forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                const targetId = this.dataset.cvTarget;
+
+                showSectionById(targetId);
+
+                history.pushState(null, "", "#" + targetId);
+            });
+        });
+        
+        if (window.location.hash) {
+            const initialId = window.location.hash.substring(1);
+            showSectionById(initialId);
+        } else {
+            showSection(0);
+        }
+        updateNavArrows();
+    </script>
+
+    <script>
+        const navbar = document.querySelector(".navbar");
+        const navbarToggle = document.querySelector(".navbar-toggle");
+
+        const dropdownCV = document.querySelector(".dropdown-cv");
+        const dropdownCVLink = document.querySelector(".dropdown-cv-link");
+
+        const dropdownResearch = document.querySelector(".dropdown-research");
+        const dropdownResearchLink = document.querySelector(".dropdown-research-link");
+
+        navbarToggle.addEventListener("click", function () {
+            navbar.classList.toggle("open");
+        });
+
+        dropdownCVLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownCV.classList.toggle("open");
+                dropdownResearch.classList.remove("open");
+            }
+        });
+
+        dropdownResearchLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownResearch.classList.toggle("open");
+                dropdownCV.classList.remove("open");
+            }
+        });
+    </script>
+</body>

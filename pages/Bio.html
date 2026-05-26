@@ -1,0 +1,183 @@
+<head>
+    <!-- 
+        UTF-8 permette di usare correttamente accenti, simboli e caratteri speciali.
+    -->
+    <meta charset="UTF-8">
+
+    <!-- 
+        Questa riga serve per far adattare bene il sito a schermi diversi:
+        computer, tablet e telefoni.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        Titolo che appare nella scheda del browser.
+    -->
+    <title>Andrea de Marco</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/definitiva_cerchio_centered.png">
+    <!-- 
+        Collegamento a Google Fonts.
+        Qui stiamo caricando il font Montserrat.
+        Richiede connessione internet.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- 
+        Collegamento al file CSS esterno.
+        Tutto lo stile della pagina lo scriveremo in style.css.
+    -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="bio-page">
+    <!-- 
+    NAVBAR = barra di navigazione principale del sito.
+    Contiene i link alle altre pagine.
+    -->
+    <nav class="navbar">
+
+        <div class="navbar-brand">
+            <img 
+                src="../assets/images/logos/definitiva_cerchio_centered.png" 
+                class="navbar-img"
+                alt="Profile picture"
+            >            
+            
+            <a href="../index.html" class="navbar-logo">Andrea de Marco</a>
+            
+            <img 
+                src="../assets/images/Me/io1.png" 
+                class="navbar-img"
+                alt="Profile picture"
+            >   
+        </div>
+
+        <button class="navbar-toggle" type="button" aria-label="Open menu">
+            ☰
+        </button>
+
+        <ul class="navbar-menu">
+
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="Bio.html">Bio</a>
+            </li>
+
+            <!-- <li class="dropdown dropdown-research">
+
+                <a href="research.html" class="dropdown-link dropdown-research-link">Research</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="prjct/project-ddm.html">DDM</a></li>
+                    <li><a href="prjct/project-emulsions.html">Emulsions</a></li>
+                    <li><a href="prjct/project-simulations.html">Simulations</a></li>
+                </ul>
+
+            </li> -->
+            
+            <li class="dropdown dropdown-cv">
+                <a href="CV.html" class="dropdown-link dropdown-cv-link">CV</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="CV.html#education">Education</a></li>
+                    <li><a href="CV.html#current-position">Current Position</a></li>
+                    <!--<li><a href="CV.html#previous-positions">Previous Positions</a></li>-->
+                    <li><a href="CV.html#publications">Publications</a></li>
+                    <li><a href="CV.html#teaching">Teaching and Supervising</a></li>
+                    <li><a href="CV.html#presentations">Presentations</a></li>
+                    <li><a href="CV.html#other-research">Other Research Activities</a></li>
+                    <!-- <li><a href="CV.html#outreach">Outreach Activities</a></li> -->
+                </ul>
+            </li>
+
+            <li>
+                <a href="contacts.html">Contacts</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main class="page-main">
+        <p class="bio-intro">
+            <strong>I like to build and measure things.</strong>
+        </p>
+
+        <p class="bio-text">
+            I am a PhD student in Soft Matter Physics and Microfluidics, currently 
+            focusing on how complex fluids evolve, flow, and interact with their 
+            surroundings under confinement and in heterogeneous microstructured 
+            environments. <br>
+            In this broad context, my work spans both fundamental soft-matter 
+            systems and applied microfluidic platforms, including flow-based 
+            technologies for energy storage.
+        </p>
+
+        <p class="bio-text">
+            I combine experimental techniques such as Differential Dynamic Microscopy 
+            and Dynamic Light Scattering with computational analysis and modeling. 
+            A central part of my work is the development of quantitative tools to 
+            extract dynamical information from images and connect it to physical 
+            quantities.
+        </p>
+
+        <p class="bio-text">
+            I also enjoy building the experimental setups I work with, taking advantage 
+            of custom-designed devices tailored to specific physical questions.
+        </p>
+
+        <p class="bio-text">
+            For more details about my academic background and research experience, 
+            please visit <a href="CV.html" class="contact-email">CV</href>.
+        </p>
+    </main>
+
+    <footer class="foot-pic">
+        <div class="image-marquee">
+            <div class="image-track">
+                <img src="../assets/images/metamorphoses2.png" alt="Scrolling image">
+                <img src="../assets/images/metamorphoses2.png" alt="">
+            </div>
+        </div>
+        
+    </footer>
+
+    <script>
+        const navbar = document.querySelector(".navbar");
+        const navbarToggle = document.querySelector(".navbar-toggle");
+
+        const dropdownCV = document.querySelector(".dropdown-cv");
+        const dropdownCVLink = document.querySelector(".dropdown-cv-link");
+
+        const dropdownResearch = document.querySelector(".dropdown-research");
+        const dropdownResearchLink = document.querySelector(".dropdown-research-link");
+
+        navbarToggle.addEventListener("click", function () {
+            navbar.classList.toggle("open");
+        });
+
+        dropdownCVLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownCV.classList.toggle("open");
+                dropdownResearch.classList.remove("open");
+            }
+        });
+
+        dropdownResearchLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownResearch.classList.toggle("open");
+                dropdownCV.classList.remove("open");
+            }
+        });
+    </script>
+</body>

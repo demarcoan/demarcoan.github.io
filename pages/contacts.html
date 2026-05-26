@@ -1,0 +1,209 @@
+<head>
+    <!-- 
+        UTF-8 permette di usare correttamente accenti, simboli e caratteri speciali.
+    -->
+    <meta charset="UTF-8">
+
+    <!-- 
+        Questa riga serve per far adattare bene il sito a schermi diversi:
+        computer, tablet e telefoni.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        Titolo che appare nella scheda del browser.
+    -->
+    <title>Andrea de Marco</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/definitiva_cerchio_centered.png">
+    <!-- 
+        Collegamento a Google Fonts.
+        Qui stiamo caricando il font Montserrat.
+        Richiede connessione internet.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- 
+        Collegamento al file CSS esterno.
+        Tutto lo stile della pagina lo scriveremo in style.css.
+    -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="internal-page">
+    <!-- 
+    NAVBAR = barra di navigazione principale del sito.
+    Contiene i link alle altre pagine.
+    -->
+    <nav class="navbar">
+
+        <div class="navbar-brand">
+            <img 
+                src="../assets/images/logos/definitiva_cerchio_centered.png" 
+                class="navbar-img"
+                alt="Profile picture"
+            >            
+            
+            <a href="../index.html" class="navbar-logo">Andrea de Marco</a>
+            
+            <img 
+                src="../assets/images/Me/io1.png" 
+                class="navbar-img"
+                alt="Profile picture"
+            >   
+        </div>
+
+        <button class="navbar-toggle" type="button" aria-label="Open menu">
+            ☰
+        </button>
+
+        <ul class="navbar-menu">
+
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="Bio.html">Bio</a>
+            </li>
+
+            <!-- <li class="dropdown dropdown-research">
+
+                <a href="research.html" class="dropdown-link dropdown-research-link">Research</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="prjct/project-ddm.html">DDM</a></li>
+                    <li><a href="prjct/project-emulsions.html">Emulsions</a></li>
+                    <li><a href="prjct/project-simulations.html">Simulations</a></li>
+                </ul>
+
+            </li> -->
+            
+            <li class="dropdown dropdown-cv">
+                <a href="CV.html" class="dropdown-link dropdown-cv-link">CV</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="CV.html#education">Education</a></li>
+                    <li><a href="CV.html#current-position">Current Position</a></li>
+                    <!--<li><a href="CV.html#previous-positions">Previous Positions</a></li>-->
+                    <li><a href="CV.html#publications">Publications</a></li>
+                    <li><a href="CV.html#teaching">Teaching and Supervising</a></li>
+                    <li><a href="CV.html#presentations">Presentations</a></li>
+                    <li><a href="CV.html#other-research">Other Research Activities</a></li>
+                    <!-- <li><a href="CV.html#outreach">Outreach Activities</a></li> -->
+                </ul>
+            </li>
+
+            <li>
+                <a href="contacts.html">Contacts</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main class="page-main">
+        <section class="contact-section">
+
+            <div class="contact-map">
+                <iframe
+                    src="https://www.google.com/maps?q=45.40898187285231,11.88567351117984&z=16&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-title">
+                    <h1>Contacts</h1>
+                    <img 
+                        src="../assets/images/icons/hands.png" 
+                        class="contact-title-icon"
+                        alt="Hands icon"
+                    >
+                </div>
+                <p>
+                    Feel free to contact me for research-related inquiries,
+                    collaborations or scientific discussions.
+                </p>
+
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a class="contact-email" 
+                        href="mailto:andrea.demarco.research@gmail.com">
+                        andrea.demarco.research@gmail.com
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <br>
+                    <strong>Office</strong>
+                    <span>
+                        Room 111<br>
+                        Department of Physics and Astronomy<br>
+                        "Galileo Galilei"<br>
+                        University of Padova
+                    </span>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icons">
+                        <a href="https://github.com/demarcoan" target="_blank" aria-label="GitHub">
+                            <img src="../assets/images/icons/github.png" alt="GitHub">
+                        </a>
+
+                        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+                            <img src="../assets/images/icons/linkedin.png" alt="LinkedIn">
+                        </a>
+
+                            <!-- <a href="https://scholar.google.com/" target="_blank" aria-label="Google Scholar">
+                                <img src="../assets/images/icons/Google_Scholar.png" alt="Google Scholar">
+                            </a> -->
+
+                        <a href="https://orcid.org/0009-0000-6246-5602" target="_blank" aria-label="Google Scholar">
+                            <img src="../assets/images/icons/ORCID.png" alt="ORCID">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        const navbar = document.querySelector(".navbar");
+        const navbarToggle = document.querySelector(".navbar-toggle");
+
+        const dropdownCV = document.querySelector(".dropdown-cv");
+        const dropdownCVLink = document.querySelector(".dropdown-cv-link");
+
+        const dropdownResearch = document.querySelector(".dropdown-research");
+        const dropdownResearchLink = document.querySelector(".dropdown-research-link");
+
+        navbarToggle.addEventListener("click", function () {
+            navbar.classList.toggle("open");
+        });
+
+        dropdownCVLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownCV.classList.toggle("open");
+                dropdownResearch.classList.remove("open");
+            }
+        });
+
+        dropdownResearchLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownResearch.classList.toggle("open");
+                dropdownCV.classList.remove("open");
+            }
+        });
+    </script>
+</body>

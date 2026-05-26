@@ -1,0 +1,1659 @@
+/* 
+    Selettore universale.
+    Applica questa regola a tutti gli elementi della pagina.
+
+    box-sizing: border-box rende più intuitivo il calcolo delle dimensioni:
+    larghezza e altezza includono anche padding e bordo.
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* 
+    Stile generale della pagina.
+    Il body rappresenta tutto ciò che si vede nel browser.
+*/
+body {
+    /* 
+        Rimuove il margine automatico che il browser mette di default.
+    */
+    margin: 0;
+
+    /* 
+        Imposta il font principale della pagina.
+        Prima prova a usare Montserrat.
+        Se Montserrat non è disponibile, usa un font sans-serif generico.
+    */
+    font-family: "Montserrat", sans-serif;
+
+    /* 
+        Colore di sfondo generale della pagina.
+    */
+    background-color: #f4f4f4;
+
+    /* 
+        Colore principale del testo.
+    */
+    color: #253D8B;
+
+    /* 
+        Altezza delle righe.
+        Serve a rendere il testo più leggibile.
+    */
+    line-height: 1.6;
+}
+
+
+/* 
+    HEADER
+    Intestazione principale della pagina.
+
+    Qui manteniamo il testo centrato come prima.
+    Il logo viene invece posizionato lateralmente in modo assoluto,
+    così non sposta il centro del testo.
+*/
+header {
+    background-color: #253D8B;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+
+    /* 
+        Serve perché il logo dentro l'header sarà posizionato
+        rispetto all'header stesso.
+    */
+    position: relative;
+}
+
+/* 
+    Contenitore interno dell'header.
+
+    Anche se nel tuo HTML contiene sia logo sia testo,
+    qui lo usiamo soprattutto per centrare bene il blocco di testo.
+*/
+.header-content {
+    /* 
+        Limita la larghezza massima del contenuto dell'header,
+        in modo simile al main.
+    */
+    width: min(92vw, 1100px);
+    max-width: none;
+
+    /* 
+        Centra il contenitore nella pagina.
+    */
+    margin: 0 auto;
+
+    /* 
+        Altezza minima utile per far respirare logo e testo.
+    */
+    min-height: 90px;
+
+    /* 
+        Serve per posizionare il logo rispetto a questo contenitore.
+    */
+    position: relative;
+
+    /* 
+        Centra il testo verticalmente dentro l'header.
+    */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 
+    Logo nell'header.
+
+    Nota importante:
+    position: absolute fa sì che il logo NON influenzi
+    la posizione del testo. Quindi il testo resta davvero centrato.
+*/
+.header-logo {
+    width: clamp(90px, 11vw, 150px);
+    height: auto;
+
+    /* 
+        Posizione assoluta rispetto a .header-content.
+    */
+    position: absolute;
+
+    /* 
+        Lo mettiamo a sinistra del testo.
+        Questo valore puoi modificarlo:
+        - se vuoi il logo più lontano dal testo, aumenta la distanza;
+        - se lo vuoi più vicino, diminuiscila.
+    */
+    left: 10px;
+
+    /* 
+        Centra verticalmente il logo rispetto all'header.
+    */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-profilepic {
+    width: clamp(90px, 11vw, 150px);
+    height: auto;
+
+    /* 
+        Posizione assoluta rispetto a .header-content.
+    */
+    position: absolute;
+
+    /* 
+        Lo mettiamo a sinistra del testo.
+        Questo valore puoi modificarlo:
+        - se vuoi il logo più lontano dal testo, aumenta la distanza;
+        - se lo vuoi più vicino, diminuiscila.
+    */
+    right: 10px;
+
+    /* 
+        Centra verticalmente il logo rispetto all'header.
+    */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 
+    Blocco del testo nell'header.
+    Rimane centrato.
+*/
+.header-text {
+    text-align: center;
+}
+
+/* 
+    Titolo principale dentro l'header.
+*/
+.header-text h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* 
+    Sottotitolo dentro l'header.
+*/
+.header-text p {
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* 
+    NAVBAR
+    Barra superiore del sito.
+*/
+.navbar {
+    /* 
+        display: flex mette gli elementi uno accanto all'altro.
+        In questo caso: logo a sinistra, menu a destra.
+    */
+    display: flex;
+
+    /*  
+        Spinge logo e menu ai due lati opposti.
+    
+    justify-content: space-between; */
+
+    /* 
+        Allinea verticalmente gli elementi al centro.
+    */
+    align-items: center;
+
+    /* 
+        Spazio interno della navbar.
+    */
+    padding: 10px clamp(18px, 4vw, 50px);
+
+    /* 
+        Colore di sfondo.
+    */
+    background-color: #253D8B;
+    border-top: 0.5px solid #ffffff;
+    /* 
+        Mantiene la navbar sopra gli altri elementi se serve.
+    */
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 
+    Nome del sito nella navbar.
+*/
+.navbar-logo {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* 
+    Logo del sito nella navbar.
+*/
+.navbar-img {
+    position: static;
+    transform: none;
+    width: 30px;
+}
+
+/* 
+    Lista principale dei link.
+*/
+.navbar-menu {
+    /* 
+        Toglie i pallini della lista.
+    */
+    list-style: none;
+
+    /* 
+        Mette i link in orizzontale.
+    */
+    display: flex;
+
+    /* 
+        Spazio tra i link.
+    */
+    gap: clamp(16px, 2vw, 28px);
+
+    /* 
+        Rimuove margini e padding automatici della lista.
+    */
+    margin: 0;
+    padding: 0;
+
+    margin-left: auto;
+}
+
+/* 
+    Ogni elemento della lista.
+    position: relative serve per posizionare correttamente il menu a tendina.
+*/
+.navbar-menu li {
+    position: relative;
+}
+
+/* 
+    Link della navbar.
+*/
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+
+    /* 
+        Piccolo effetto morbido quando cambia colore.
+    */
+    transition: color 0.2s ease;
+}
+
+/* 
+    Effetto quando passo con il mouse sopra un link.
+*/
+.navbar-menu a:hover {
+    color: #cccccc;
+}
+
+/* Homepage: nasconde immagine + nome nella navbar */
+.home-page .navbar-brand {
+    display: none;
+}
+
+/* Pagine secondarie: mostra immagine + nome */
+.internal-page .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 
+    MENU A TENDINA
+    Di default è nascosto.
+*/
+.dropdown-menu {
+    list-style: none;
+
+    /* 
+        Il menu è posizionato rispetto al suo genitore .dropdown.
+    */
+    position: absolute;
+    transform: translateX(-50%);
+
+    /* 
+        Lo mettiamo subito sotto il link principale.
+    */
+    top: 100%;
+    left: 50%;
+
+    /* 
+        Aspetto del menu a tendina.
+    */
+    background-color: #222;
+    min-width: 150px;
+    padding: 12px 0;
+    margin: 0;
+    text-align: center;
+
+    /* 
+        Angoli arrotondati in basso.
+    */
+    border-radius: 5px 5px 5px 5px;
+
+    /* 
+        Ombra leggera.
+    */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    /* 
+        Nasconde il menu.
+    */
+    display: none;
+    z-index: 2000;
+}
+
+/* 
+    Link dentro il menu a tendina.
+*/
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 25px;
+    color: white;
+    font-size: 12px;
+}
+
+/* 
+    Effetto hover sui link del menu a tendina.
+*/
+.dropdown-menu li a:hover {
+    background-color: #222;
+}
+
+/* 
+    Quando passo con il mouse sopra .dropdown,
+    mostro il suo menu interno.
+*/
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+/* 
+    Contenitore principale della pagina.
+*/
+main {
+    /* 
+        Impedisce al contenuto di diventare troppo largo su schermi grandi.
+    */
+    width: min(88vw, 1100px);
+
+    /* 
+        40px sopra e sotto.
+        auto a destra e sinistra centra il blocco.
+    */
+    margin: 40px auto;
+
+    /* 
+        Spazio laterale utile soprattutto su schermi piccoli.
+    */
+    padding: 0 0;
+}
+
+/* 
+    Blocco principale con immagine e testo affiancati.
+*/
+.main-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+/* 
+    Immagine principale nella homepage.
+*/
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* 
+    Ogni section è una "card" bianca.
+*/
+section {
+    background-color: white;
+    text-align: justify;
+
+    margin-bottom: 0px;
+
+    /*
+        Tolgo margin-left perché ora ci pensa flex
+        a mettere immagine e testo affiancati.
+    */
+    margin-left: 0;
+
+    padding: 24px;
+    border-radius: 12px;
+
+    /*
+        La section occupa lo spazio rimanente accanto all'immagine.
+    */
+    flex: 1;
+}
+
+/* 
+    Titoli delle sezioni.
+*/
+section h2 {
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* 
+    Paragrafi delle sezioni.
+*/
+section p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* 
+    Fondo della pagina.
+*/
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #ddd;
+}
+
+footer ud{
+    font-size: 10px;
+}
+
+.foot-pic{
+    padding: none;
+    background-color: #f4f4f4;
+}
+
+/*
+    Page secondarie
+*/
+
+.page-main {
+    max-width: min(88vw, 1100px);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+}
+
+.page-title {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+.page-title h1 {
+    font-size: 2.2rem;
+    color: #253D8B;
+    margin-bottom: 0.5rem;
+}
+
+.page-title p {
+    font-size: 1.05rem;
+    color: #555;
+    margin: 0;
+}
+
+.page-section {
+    margin-bottom: 2.5rem;
+}
+
+
+/*
+    BIO PAGE
+*/
+
+.bio-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-page main {
+    flex: 1;
+}
+
+.bio-intro {
+    text-align: center;
+}
+
+.bio-text {
+    text-align: justify;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.bio-page footer {
+    margin-top: auto;
+    padding-bottom: 10;
+}
+
+.image-marquee {
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-track {
+    display: flex;
+    height: 150px;
+    width: max-content;
+    animation: scroll-loop 240s linear infinite;
+}
+
+
+
+/*
+CV - scroll normale
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+
+.cv-page {
+    background-color: #eeeeee;
+    overflow-x: hidden;
+}
+
+.page-mainCV {
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+    
+    margin: 0;
+    padding-left: clamp(28px, 4.7vw, 70px);
+    
+    background-color: #eeeeee;
+}
+
+.page-cv {
+    margin: 0;
+    
+    padding: 0 0 20px 0;
+    background-color: #eeeeee;
+    border-radius: 0;
+}
+
+.cv-section-title {
+    width: clamp(320px, 37.5vw, 520px);
+    box-sizing: border-box;
+
+    margin-left: calc(-1 * clamp(28px, 4.7vw, 70px));
+    padding: clamp(42px, 4.7vw, 64px) 20px 5px 0;
+
+    background-color: #eeeeee;
+    color: #253D8B;
+
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+
+    text-align: right;
+
+    border-bottom: 2.5px solid #253D8B;
+}
+
+.cv-section-content {
+    width: min(90vw, 1000px);
+    max-width: none;
+    margin: 0 auto;
+    padding: 40px 24px 0px 24px;
+
+    color: #253D8B;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.cv-entry {
+    margin-bottom: 6px;
+}
+
+.cv-entry-title {
+    margin: 0 0 6px 0;
+
+    color: #253D8B;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.cv-entry-place {
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.cv-entry-th_title {
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2.5;
+    text-align: left;
+    font-style: italic;
+}
+
+.cv-entry-details {
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.cv-entry-details-bold{
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.cv-section-content p {
+    margin: 0;
+}
+
+.cv-entry-meta {
+    display: grid;
+
+    /*
+        Prima colonna: larghezza fissa per le label.
+        Seconda colonna: prende lo spazio restante.
+    */
+    grid-template-columns: 90px 1fr;
+    
+    padding-left: 7px;
+    column-gap: 14px;
+    row-gap: 4px;
+
+    margin-top: 10px;
+
+    color: #253D8B;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.cv-meta-place {
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-left: 37px;
+    text-align: right;
+}
+
+.cv-meta-label {
+    text-align: right;
+    font-weight: 500;
+}
+
+.cv-meta-auth {
+    padding-left: 7px;
+    text-align: right;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.cv-meta-value {
+    text-align: left;
+    font-weight: 400;
+}
+
+.cv-presentation-group {
+    margin-bottom: 5px;
+}
+
+.cv-presentation-category {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 20px 24px;
+
+    color: #253D8B;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: justify;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.cv-presentation-category::before {
+    content: "•";
+    flex: 0 0 auto;
+    font-size: 25px;
+    line-height: 0.7;
+}
+
+.cv-presentation-group-talktitle{
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 14px;
+    font-weight: 600;
+    
+    line-height: 1.5;
+    padding-left: 50px;
+    text-align: left;
+}
+
+.cv-presentation-group-location{
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 12px;
+    font-weight: 600;
+    
+    line-height: 1.5;
+    padding-left: 70px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.cv-presentation-group-conference{
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.5;
+    padding-left: 70px;
+    text-align: left;
+}
+
+.cv-presentation-group-conference-details{
+    margin: 0;
+
+    color: #253D8B;
+    font-size: 12px;
+    font-weight: 200;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.cv-presentation-group .cv-entry {
+    padding-left: 22px;
+}
+
+.back-to-top {
+    position: fixed;
+
+    right: 28px;
+    bottom: 28px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 2px solid #253D8B;
+    border-radius: 50%;
+
+    background-color: #eeeeee;
+    color: #253D8B;
+
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease;
+
+    z-index: 5000;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: #253D8B;
+    color: #eeeeee;
+}
+
+
+/*
+    Contacts
+*/
+
+.contact-section {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.contact-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1px;
+}
+
+.contact-title h1 {
+    margin: 0;
+    font-size: 34px;
+    color: #253D8B;
+}
+
+.contact-title-icon {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    
+    transform: translateY(-7px);
+}
+
+
+.contact-map {
+    height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info h1 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 28px;
+    color: #253D8B;
+}
+
+.contact-info p {
+    margin-bottom: 28px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 0px;
+}
+
+.contact-item strong {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.contact-item a {
+    color: #253D8B;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-item a:visited {
+    color: #253D8B;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.contact-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.contact-icons a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-icons a:hover {
+    transform: translateY(-3px);
+    background-color: #f4f4f4;
+}
+
+.contact-icons img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+}
+
+.contact-email,
+.contact-email:visited {
+    color: #253D8B;
+    text-decoration: none;
+}
+
+.contact-email:hover {
+    text-decoration: underline;
+}
+
+
+
+.navbar-toggle {
+    display: none;
+}
+
+@keyframes scroll-loop {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Schermi Piccoli */
+@media (min-width: 701px) and (max-width: 1100px) {
+    main {
+        width: min(92vw, 1000px);
+    }
+
+    .page-main {
+        width: min(92vw, 1000px);
+    }
+
+    .header-content {
+        width: min(94vw, 1000px);
+        max-width: none;
+    }
+
+    .header-logo,
+    .header-profilepic {
+        width: clamp(90px, 10vw, 130px);
+    }
+
+    .header-text h1 {
+        font-size: clamp(26px, 3vw, 30px);
+    }
+
+    .header-text p {
+        font-size: clamp(15px, 2vw, 18px);
+    }
+
+    .navbar {
+        padding-left: clamp(20px, 3vw, 40px);
+        padding-right: clamp(20px, 3vw, 40px);
+    }
+
+    .navbar-menu {
+        gap: clamp(14px, 1.8vw, 24px);
+    }
+
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map {
+        height: 360px;
+    }
+}
+
+
+/* 
+    Stile utile per schermi piccoli, tipo smartphone.
+    Queste regole si applicano solo se lo schermo è largo al massimo 600px.
+*/
+@media (max-width: 700px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /*
+        HEADER MOBILE
+    */
+    header {
+        padding: 32px 18px;
+    }
+
+    .header-content {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-logo,
+    .header-profilepic {
+        position: static;
+        transform: none;
+        width: 90px;
+        height: auto;
+    }
+
+    .header-text h1 {
+        font-size: 30px;
+        line-height: 1.15;
+    }
+
+    .header-text p {
+        font-size: 15px;
+        line-height: 1.35;
+    }
+
+    /*
+    NAVBAR MOBILE CON HAMBURGER
+    Vale solo sotto i 700px.
+*/
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 3000;
+
+        padding: 14px 16px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 0;
+    }
+
+    .navbar-brand {
+        justify-content: flex-start;
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .navbar-img {
+        width: 28px;
+    }
+
+    .navbar-logo {
+        font-size: 14px;
+    }
+
+    .navbar-toggle {
+        display: block;
+
+        border: none;
+        background: none;
+
+        color: white;
+        font-size: 28px;
+        line-height: 1;
+
+        cursor: pointer;
+    }
+
+    /*
+        Menu mobile chiuso di default
+    */
+    .navbar-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        display: none;
+
+        width: 100%;
+        margin-left: 0;
+        padding: 12px 0;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+
+        background-color: #253D8B;
+        border-top: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    /*
+        Menu mobile aperto
+    */
+    .navbar.open .navbar-menu {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-menu a {
+        display: block;
+        width: 100%;
+
+        padding: 10px 0;
+
+        font-size: 13px;
+    }
+
+    /*
+    Dropdown dentro il menu hamburger.
+    */
+    .dropdown {
+    width: 100%;
+    text-align: center;
+    }
+
+    /*
+        Dropdown dentro il menu hamburger.
+        Qui annulliamo TUTTE le proprietà desktop.
+    */
+    .dropdown-menu {
+        position: static;
+
+        display: none;
+
+        width: min(85%, 320px);
+        min-width: 0;
+        max-width: none;
+
+        margin: 6px auto 10px auto;
+        padding: 8px 0;
+
+        left: auto;
+        top: auto;
+        right: auto;
+        transform: none;
+
+        background-color: rgba(255, 255, 255, 0.08);
+        box-shadow: none;
+        border-radius: 6px;
+
+        text-align: center;
+    }
+
+    /*
+        Su mobile annulliamo l'hover desktop.
+    */
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    /*
+        Si apre solo quando JS aggiunge .open al dropdown.
+    */
+    .dropdown.open .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 4px;
+    }
+
+    .dropdown-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        width: 100%;
+
+        padding: 8px 10px;
+
+        font-size: 12px;
+        white-space: normal;
+        opacity: 0.9;
+        text-align: center;
+    }
+
+    /*
+        MAIN GENERALE
+    */
+    main {
+        max-width: 100%;
+        margin: 24px auto;
+        padding: 0 16px;
+    }
+
+    .page-main {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 24px 16px;
+    }
+
+    /*
+        HOMEPAGE MOBILE
+        Qui prima non funzionava perché .main-intro è grid, non flex.
+    */
+    .main-intro {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        align-items: start;
+    }
+
+    .main-img {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+        object-fit: contain;
+        order: 2;
+    }
+
+    .main-intro section {
+        order: 1;
+    }
+
+    section {
+        width: 100%;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+    section p {
+        font-size: 15px;
+    }
+
+    /*
+        BIO MOBILE
+    */
+    .bio-text {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .bio-intro {
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .image-track {
+        height: 90px;
+    }
+
+    .image-track img {
+        height: 90px;
+        width: auto;
+    }
+    
+    /*
+    CV MOBILE - scroll normale
+    */
+    .cv-page {
+        overflow-x: hidden;
+        background-color: #eeeeee;
+    }
+
+    .cv-page .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 3000;
+    }
+
+    /*
+        Sposto tutto il contenuto CV leggermente a destra,
+        come nel desktop ma meno.
+    */
+    .page-mainCV {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding-left: 0;
+
+        background-color: #eeeeee;
+    }
+
+    .page-cv {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 0 0 28px 0;
+
+        border-radius: 0;
+        background-color: #eeeeee;
+    }
+
+    /*
+        Titolo sezione.
+        La linea parte da sinistra grazie a margin-left negativo,
+        ma il resto della pagina resta spostato a destra.
+    */
+    .cv-section-title {
+        width: min(220px, 78vw);
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 34px 18px 5px 0;
+
+        background-color: #eeeeee;
+        color: #253D8B;
+
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: 0.03em;
+
+        text-align: right;
+
+        border-bottom: 2px solid #253D8B;
+    }
+
+    /*
+        Contenuto generale delle sezioni.
+    */
+    .cv-section-content {
+        max-width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 26px 22px 0 4px;
+
+        color: #253D8B;
+        font-size: 14px;
+        line-height: 1.55;
+        text-align: left;
+    }
+
+    .cv-entry {
+        margin-bottom: 10px;
+    }
+
+    .cv-entry-title {
+        margin: 0 0 5px 0;
+
+        font-size: 12px;
+        line-height: 1.35;
+        text-align: left;
+    }
+
+    .cv-entry-place {
+        padding-left: 0;
+
+        font-size: 11px;
+        line-height: 1.35;
+        text-align: left;
+    }
+
+    .cv-entry-th_title {
+        font-size: 11px;
+        line-height: 1.35;
+        text-align: left;
+    }
+
+    .cv-entry-details {
+        padding-left: 0;
+
+        font-size: 10.5px;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    .cv-entry-details-bold {
+        padding-left: 0;
+
+        font-size: 10.5px;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    /*
+        Publications / meta info.
+    */
+    .cv-entry-meta {
+        display: grid;
+        grid-template-columns: 58px 1fr;
+
+        padding-left: 0;
+        column-gap: 7px;
+        row-gap: 4px;
+
+        margin-top: 10px;
+
+        color: #253D8B;
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .cv-meta-place {
+        padding-left: 0;
+
+        font-size: 11px;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .cv-meta-label {
+        padding-left: 0;
+
+        font-size: 11px;
+        font-weight: 600;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .cv-meta-auth,
+    .cv-meta-value {
+        padding-left: 0;
+
+        font-size: 11px;
+        font-weight: 400;
+        text-align: left;
+    }
+
+    /*
+        Presentations mobile.
+    */
+    .cv-presentation-group {
+        margin-bottom: 8px;
+    }
+
+    .cv-presentation-category {
+        max-width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 26px 22px 14px 4px;
+
+        font-size: 13px;
+        line-height: 1.35;
+        text-align: left;
+
+        display: flex;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .cv-presentation-category::before {
+        content: "•";
+        flex: 0 0 auto;
+
+        font-size: 20px;
+        line-height: 0.75;
+    }
+
+    .cv-presentation-group .cv-entry {
+        padding-left: 16px;
+    }
+
+    .cv-presentation-group-talktitle {
+        padding-left: 0;
+
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    .cv-presentation-group-conference {
+        padding-left: 12px;
+
+        font-size: 10px;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    .cv-presentation-group-conference-details {
+        font-size: 10px;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    .cv-presentation-group-location {
+        padding-left: 12px;
+        padding-bottom: 14px;
+
+        font-size: 10px;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    /*
+        Freccia back to top.
+    */
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 21px;
+    }
+
+
+    /*
+        CONTACTS MOBILE
+    */
+    .contact-section {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 18px;
+    }
+
+    .contact-map {
+        height: 260px;
+        order: 2;
+    }
+
+    .contact-info {
+        order: 1;
+        justify-content: flex-start;
+    }
+
+    .contact-title {
+        gap: 10px;
+        align-items: center;
+    }
+
+    .contact-title h1 {
+        font-size: 30px;
+    }
+
+    .contact-title-icon {
+        width: 44px;
+        transform: translateY(-4px);
+    }
+
+    .contact-info p {
+        margin-bottom: 20px;
+    }
+
+    .contact-email {
+        word-break: break-word;
+    }
+
+    .contact-icons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .contact-icons a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .contact-icons img {
+        width: 28px;
+    }
+
+
+    footer {
+        font-size: 13px;
+        padding: 14px 12px;
+    }
+}

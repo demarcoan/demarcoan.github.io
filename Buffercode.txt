@@ -1,0 +1,63 @@
+ <!-- 
+    NAVBAR = barra di navigazione principale del sito.
+    Contiene i link alle altre pagine.
+    -->
+    <nav class="navbar">
+
+        <!-- 
+            Logo o nome del sito.
+            Per ora è solo testo, ma più avanti può diventare anche un'immagine.
+        -->
+        <a href="index.html" class="navbar-logo">My Website</a>
+
+        <!-- 
+            Lista dei collegamenti principali.
+        -->
+        <ul class="navbar-menu">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <!-- 
+                Elemento con menu a tendina.
+                La classe "dropdown" ci servirà nel CSS.
+            -->
+            <li class="dropdown">
+
+                <!-- 
+                    Questo è il link principale del menu.
+                    Per ora punta a projects.html.
+                -->
+                <a href="projects.html">Projects</a>
+
+                <!-- 
+                    Questo è il menu nascosto che appare sotto "Projects".
+                -->
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="project-ddm.html">DDM</a>
+                    </li>
+
+                    <li>
+                        <a href="project-emulsions.html">Emulsions</a>
+                    </li>
+
+                    <li>
+                        <a href="project-simulations.html">Simulations</a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="contacts.html">Contacts</a>
+            </li>
+
+        </ul>
+
+    </nav>
