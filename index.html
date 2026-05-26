@@ -251,4 +251,257 @@
         });
     </script>
 </body>
+<!DOCTYPE html>
+
+<!-- 
+    Questo è l'elemento principale della pagina.
+    lang="en" dice al browser che il contenuto della pagina è in inglese.
+    Se il sito fosse in italiano, useremmo lang="it".
+-->
+<html lang="en">
+
+<head>
+    <!-- 
+        UTF-8 permette di usare correttamente accenti, simboli e caratteri speciali.
+    -->
+    <meta charset="UTF-8">
+
+    <!-- 
+        Questa riga serve per far adattare bene il sito a schermi diversi:
+        computer, tablet e telefoni.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        Titolo che appare nella scheda del browser.
+    -->
+    <title>Andrea de Marco</title>
+    <link rel="icon" type="image/png" href="assets/images/logos/definitiva_cerchio_centered.png">
+    <!-- 
+        Collegamento a Google Fonts.
+        Qui stiamo caricando il font Montserrat.
+        Richiede connessione internet.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- 
+        Collegamento al file CSS esterno.
+        Tutto lo stile della pagina lo scriveremo in style.css.
+    -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-page">
+
+   
+    <!-- 
+        HEADER = intestazione della pagina.
+        Di solito contiene titolo, logo, sottotitolo o menu di navigazione.
+    -->
+    <header>
+
+        <!-- 
+            Contenitore interno dell'header.
+            Serve per mettere logo e testo affiancati.
+        -->
+        <div class="header-content">
+
+            <!-- 
+                Logo dell'header.
+            -->
+            <img 
+                src="assets/images/logos/definitiva_cerchio_centered.png" 
+                class="header-logo" 
+                alt="Logo"
+            >
+
+            <!-- 
+                Blocco di testo accanto al logo.
+            -->
+            <div class="header-text">
+                <h1>Andrea de Marco</h1>
+                <p>Physics of Soft Matter and Microfluidics</p>
+            </div>
+            
+            <img 
+                src="assets/images/Me/io1.png" 
+                class="header-profilepic" 
+                alt="profilepic"
+            >
+
+        </div>
+
+    </header>
+    <!-- 
+    NAVBAR = barra di navigazione principale del sito.
+    Contiene i link alle altre pagine.
+    -->
+    <nav class="navbar">
+        <!-- 
+            Logo o nome del sito.
+            Per ora è solo testo, ma più avanti può diventare anche un'immagine.
+        -->
+        <div class="navbar-brand">           
+            <a href="index.html" class="navbar-logo">Andrea de Marco</a>
+        </div>
+
+        <button class="navbar-toggle" type="button" aria-label="Open menu">
+            ☰
+        </button>
+        
+        <!-- 
+            Lista dei collegamenti principali.
+        -->
+        <ul class="navbar-menu">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="pages/Bio.html">Bio</a>
+            </li>
+
+            <!-- 
+                Elemento con menu a tendina.
+                La classe "dropdown" ci servirà nel CSS.
+            -->
+            <!-- <li class="dropdown dropdown-research">
+
+                 
+                    Questo è il link principale del menu.
+                    Per ora punta a projects.html.
+                
+                <a href="pages/research.html" class="dropdown-link dropdown-research-link">Research</a>
+
+                 
+                    Questo è il menu nascosto che appare sotto "Projects".
+                
+                <ul class="dropdown-menu">
+                    <li><a href="pages/prjct/project-ddm.html">DDM</a></li>
+                    <li><a href="pages/prjct/project-emulsions.html">Emulsions</a></li>
+                    <li><a href="pages/prjct/project-simulations.html">Simulations</a></li>
+                </ul>
+
+            </li> -->
+            
+            <!--
+            <li>
+                <a href="pages/pubs.html">Publications</a>
+            </li>
+            -->
+            <li class="dropdown dropdown-cv">
+                <a href="pages/CV.html" class="dropdown-link dropdown-cv-link">CV</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="pages/CV.html#education">Education</a></li>
+                    <li><a href="pages/CV.html#current-position">Current Position</a></li>
+                    <!--<li><a href="CV.html#previous-positions">Previous Positions</a></li>-->
+                    <li><a href="pages/CV.html#publications">Publications</a></li>
+                    <li><a href="pages/CV.html#teaching">Teaching and Supervising</a></li>
+                    <li><a href="pages/CV.html#presentations">Presentations</a></li>
+                    <li><a href="pages/CV.html#other-research">Other Research Activities</a></li>
+                    <!-- <li><a href="pages/CV.html#outreach">Outreach Activities</a></li> -->
+                </ul>
+            </li>
+
+            <li>
+                <a href="pages/contacts.html">Contacts</a>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- 
+        MAIN = contenuto principale della pagina.
+        Tutto ciò che è davvero importante nella pagina dovrebbe stare qui dentro.
+    -->
+    <main>
+
+        <!-- 
+            SECTION = blocco tematico della pagina.
+            Ogni section dovrebbe contenere un argomento specifico.
+        -->
+        <div class="main-intro">
+
+            <img src="assets/images/Me/notNoise.png"
+                class="main-img" 
+                alt="Portrait sketch of Andrea de Marco"
+            >
+
+            <section>
+                <h2>Ciao!</h2>
+
+                <p>
+                    My name is Andrea de Marco and currently I am a PhD student at the 
+                    Laboratory of Physics of Surfaces and Interfaces (LaFSI) at
+                    University of Padova - Italy.
+                </p>
+
+                <p>
+                    My research interest focuses on the properties of Soft Materials such
+                    as colloids, emulsions and polymeric solutions both at rest and in 
+                    flow conditions.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- 
+        FOOTER = fondo della pagina.
+        Di solito contiene copyright, contatti, link secondari o informazioni legali.
+    -->
+    <footer>
+        <div class="contact-item">
+            <a class="contact-email" 
+               href="mailto:andrea.demarco.research@gmail.com">
+               andrea.demarco.research@gmail.com
+            </a>
+        </div>
+        <ud>
+        <p>Last updated: June 2026</p></ud>
+    </footer>
+
+    <!-- 
+        Collegamento al file JavaScript esterno.
+        Lo mettiamo alla fine del body perché così la pagina HTML viene caricata prima.
+    -->
+    <script src="script.js"></script>
+
+    <script>
+        const navbar = document.querySelector(".navbar");
+        const navbarToggle = document.querySelector(".navbar-toggle");
+
+        const dropdownCV = document.querySelector(".dropdown-cv");
+        const dropdownCVLink = document.querySelector(".dropdown-cv-link");
+
+        const dropdownResearch = document.querySelector(".dropdown-research");
+        const dropdownResearchLink = document.querySelector(".dropdown-research-link");
+
+        navbarToggle.addEventListener("click", function () {
+            navbar.classList.toggle("open");
+        });
+
+        dropdownCVLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownCV.classList.toggle("open");
+                dropdownResearch.classList.remove("open");
+            }
+        });
+
+        dropdownResearchLink.addEventListener("click", function (event) {
+            if (window.innerWidth <= 700) {
+                event.preventDefault();
+                dropdownResearch.classList.toggle("open");
+                dropdownCV.classList.remove("open");
+            }
+        });
+    </script>
+</body>
 </html>
