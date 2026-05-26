@@ -1148,6 +1148,33 @@
             width: 35px;
         }
 
+        .bio-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bio-page main {
+            flex: 1;
+        }
+
+        .bio-intro {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .bio-text {
+            text-align: justify;
+            padding-left: 10%;
+            padding-right: 10%;
+            font-size: 18px;
+        }
+
+        .bio-page footer {
+            margin-top: auto;
+            padding-bottom: 10;
+        }
+        
         .image-track {
             height: 120px;
         }
