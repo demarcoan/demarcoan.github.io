@@ -1056,6 +1056,86 @@ html {
     }
 }
 
+/* 
+    CV - adattamento desktop grande
+    Vale solo sopra il tuo riferimento da laptop.
+*/
+@media (min-width: 1101px) {
+    .cv-page {
+        --cv-scale: clamp(1, calc(100vw / 1400), 1.28);
+    }
+
+    .cv-section-title {
+        width: calc(400px * var(--cv-scale));
+        margin-left: -50px;
+
+        padding-top: calc(50px * var(--cv-scale));
+        padding-right: calc(20px * var(--cv-scale));
+        padding-bottom: 5px;
+
+        font-size: calc(28px * var(--cv-scale));
+    }
+
+    .cv-section-content {
+        width: min(58vw, calc(900px * var(--cv-scale)));
+        max-width: none;
+
+        padding-top: calc(40px * var(--cv-scale));
+        padding-left: calc(24px * var(--cv-scale));
+        padding-right: calc(24px * var(--cv-scale));
+
+        font-size: calc(16px * var(--cv-scale));
+    }
+
+    .cv-entry-title,
+    .cv-entry-place,
+    .cv-entry-th_title {
+        font-size: calc(16px * var(--cv-scale));
+    }
+
+    .cv-entry-details {
+        font-size: calc(14px * var(--cv-scale));
+    }
+
+    .cv-entry-details-bold {
+        font-size: calc(12px * var(--cv-scale));
+    }
+
+    .cv-entry-meta {
+        grid-template-columns: calc(90px * var(--cv-scale)) 1fr;
+        column-gap: calc(14px * var(--cv-scale));
+        font-size: calc(14px * var(--cv-scale));
+    }
+
+    .cv-meta-place,
+    .cv-meta-auth,
+    .cv-meta-value {
+        font-size: calc(14px * var(--cv-scale));
+    }
+
+    .cv-presentation-category {
+        width: min(58vw, calc(900px * var(--cv-scale)));
+        max-width: none;
+
+        padding-top: calc(40px * var(--cv-scale));
+        padding-left: calc(24px * var(--cv-scale));
+        padding-right: calc(24px * var(--cv-scale));
+
+        font-size: calc(16px * var(--cv-scale));
+    }
+
+    .cv-presentation-group-talktitle {
+        font-size: calc(14px * var(--cv-scale));
+        padding-left: calc(50px * var(--cv-scale));
+    }
+
+    .cv-presentation-group-conference,
+    .cv-presentation-group-location,
+    .cv-presentation-group-conference-details {
+        font-size: calc(12px * var(--cv-scale));
+    }
+}
+
 
 /* 
     Stile utile per schermi piccoli, tipo smartphone.
