@@ -1057,12 +1057,13 @@ html {
 }
 
 /* 
-    CV - adattamento desktop grande
-    Vale solo sopra il tuo riferimento da laptop.
+    CV - desktop grande
+    Ingrandisce moderatamente il CV su monitor larghi,
+    senza toccare homepage, immagini, navbar mobile, ecc.
 */
-@media (min-width: 1101px) {
+@media (min-width: 1400px) {
     .cv-page {
-        --cv-scale: clamp(1, calc(100vw / 1400), 1.28);
+        --cv-scale: clamp(1, calc(100vw / 1600), 1.22);
     }
 
     .cv-section-title {
@@ -1074,10 +1075,11 @@ html {
         padding-bottom: 5px;
 
         font-size: calc(28px * var(--cv-scale));
+        border-bottom-width: calc(2.5px * var(--cv-scale));
     }
 
     .cv-section-content {
-        width: min(58vw, calc(900px * var(--cv-scale)));
+        width: min(62vw, calc(900px * var(--cv-scale)));
         max-width: none;
 
         padding-top: calc(40px * var(--cv-scale));
@@ -1085,6 +1087,11 @@ html {
         padding-right: calc(24px * var(--cv-scale));
 
         font-size: calc(16px * var(--cv-scale));
+        line-height: 1.6;
+    }
+
+    .cv-entry {
+        margin-bottom: calc(6px * var(--cv-scale));
     }
 
     .cv-entry-title,
@@ -1093,35 +1100,54 @@ html {
         font-size: calc(16px * var(--cv-scale));
     }
 
+    .cv-entry-place {
+        padding-left: calc(30px * var(--cv-scale));
+    }
+
     .cv-entry-details {
         font-size: calc(14px * var(--cv-scale));
+        padding-left: calc(30px * var(--cv-scale));
     }
 
     .cv-entry-details-bold {
         font-size: calc(12px * var(--cv-scale));
+        padding-left: calc(30px * var(--cv-scale));
     }
 
     .cv-entry-meta {
         grid-template-columns: calc(90px * var(--cv-scale)) 1fr;
+        padding-left: calc(7px * var(--cv-scale));
         column-gap: calc(14px * var(--cv-scale));
+        row-gap: calc(4px * var(--cv-scale));
+        margin-top: calc(10px * var(--cv-scale));
         font-size: calc(14px * var(--cv-scale));
     }
 
-    .cv-meta-place,
-    .cv-meta-auth,
-    .cv-meta-value {
+    .cv-meta-place {
         font-size: calc(14px * var(--cv-scale));
+        padding-left: calc(37px * var(--cv-scale));
+    }
+
+    .cv-meta-auth {
+        font-size: calc(14px * var(--cv-scale));
+        padding-left: calc(7px * var(--cv-scale));
     }
 
     .cv-presentation-category {
-        width: min(58vw, calc(900px * var(--cv-scale)));
+        width: min(62vw, calc(900px * var(--cv-scale)));
         max-width: none;
 
         padding-top: calc(40px * var(--cv-scale));
         padding-left: calc(24px * var(--cv-scale));
         padding-right: calc(24px * var(--cv-scale));
+        padding-bottom: calc(20px * var(--cv-scale));
 
         font-size: calc(16px * var(--cv-scale));
+        gap: calc(8px * var(--cv-scale));
+    }
+
+    .cv-presentation-category::before {
+        font-size: calc(25px * var(--cv-scale));
     }
 
     .cv-presentation-group-talktitle {
@@ -1129,8 +1155,17 @@ html {
         padding-left: calc(50px * var(--cv-scale));
     }
 
-    .cv-presentation-group-conference,
-    .cv-presentation-group-location,
+    .cv-presentation-group-location {
+        font-size: calc(12px * var(--cv-scale));
+        padding-left: calc(70px * var(--cv-scale));
+        padding-bottom: calc(20px * var(--cv-scale));
+    }
+
+    .cv-presentation-group-conference {
+        font-size: calc(12px * var(--cv-scale));
+        padding-left: calc(70px * var(--cv-scale));
+    }
+
     .cv-presentation-group-conference-details {
         font-size: calc(12px * var(--cv-scale));
     }
