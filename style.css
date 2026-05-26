@@ -1073,6 +1073,60 @@
 
     /* Desktop grande*/
     @media (min-width: 1100px) {
+
+        .navbar {
+            padding: 10px clamp(18px, 4vw, 50px);
+        }
+
+        .navbar-logo {
+            font-size: 20px;
+        }
+
+        .navbar-menu a {
+            font-size: 17px;
+        }
+
+        .navbar-img {
+            width: 35px;
+        }
+
+        .bio-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bio-page main {
+            flex: 1;
+        }
+
+        .bio-intro {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .bio-text {
+            text-align: justify;
+            padding-left: 10%;
+            padding-right: 10%;
+            font-size: 18px;
+        }
+
+        .bio-page footer {
+            margin-top: auto;
+            padding-bottom: 10;
+        }
+        
+        .image-track {
+            height: 120px;
+        }
+
+        .image-track img {
+            height: 120px;
+            width: auto;
+        }
+
+
         .cv-section-title {
             width: clamp(420px, 42vw, 800px);
             font-size: 40px;
@@ -1132,57 +1186,45 @@
             text-align: left;
         }
         
-        .navbar {
-            padding: 10px clamp(18px, 4vw, 50px);
-        }
+        .back-to-top {
+            position: fixed;
 
-        .navbar-logo {
-            font-size: 20px;
-        }
+            right: 36px;
+            bottom: 36px;
 
-        .navbar-menu a {
-            font-size: 17px;
-        }
+            width: 60px;
+            height: 60px;
 
-        .navbar-img {
-            width: 35px;
-        }
+            border: 2px solid #253D8B;
+            border-radius: 50%;
 
-        .bio-page {
-            min-height: 100vh;
+            background-color: #eeeeee;
+            color: #253D8B;
+
+            font-size: 30px;
+            font-weight: 400;
+            line-height: 1;
+
+            cursor: pointer;
+
             display: flex;
-            flex-direction: column;
-        }
+            align-items: center;
+            justify-content: center;
 
-        .bio-page main {
-            flex: 1;
-        }
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
 
-        .bio-intro {
-            text-align: center;
-            font-size: 24px;
-        }
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease,
+                transform 0.25s ease,
+                background-color 0.25s ease,
+                color 0.25s ease;
 
-        .bio-text {
-            text-align: justify;
-            padding-left: 10%;
-            padding-right: 10%;
-            font-size: 18px;
-        }
-
-        .bio-page footer {
-            margin-top: auto;
-            padding-bottom: 10;
+            z-index: 5000;
         }
         
-        .image-track {
-            height: 120px;
-        }
-
-        .image-track img {
-            height: 120px;
-            width: auto;
-        }
     }
 
     /* 
