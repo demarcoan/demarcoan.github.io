@@ -1074,6 +1074,7 @@
     @media (min-width: 1100px) {
         .cv-section-title {
             width: clamp(420px, 42vw, 650px);
+            font-size: 40px;
         }
 
         .navbar {
