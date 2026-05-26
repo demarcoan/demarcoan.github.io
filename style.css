@@ -1147,6 +1147,15 @@
         .navbar-img {
             width: 35px;
         }
+
+        .image-track {
+            height: 120px;
+        }
+
+        .image-track img {
+            height: 120px;
+            width: auto;
+        }
     }
 
     /* 
