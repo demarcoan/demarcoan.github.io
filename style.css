@@ -1602,8 +1602,7 @@
             width: 100%;
             aspect-ratio: 1;
             max-height: 360px;
-            object-fit: contain;
-            order: 2;
+            object-fit: cover;
             border-radius: 12px;
         }
 
