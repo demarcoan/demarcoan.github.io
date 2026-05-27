@@ -1507,9 +1507,9 @@
         }
 
         /*
-        NAVBAR MOBILE CON HAMBURGER
-        Vale solo sotto i 700px.
-    */
+            NAVBAR MOBILE CON HAMBURGER
+            Vale solo sotto i 700px.
+        */
         .navbar {
             position: sticky;
             top: 0;
@@ -1733,6 +1733,69 @@
 
         section p {
             font-size: 15px;
+        }
+
+        /* NEWS MOBILE */
+        .main-intro-news {
+            display: block;
+        }
+
+        .main-intro-news section {
+            grid-column: auto;
+        }
+
+        .section-h2-news {
+            font-size: 22px;
+            margin-bottom: 26px;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        /* ordine mobile: testo sopra, immagine sotto */
+        .news-text {
+            order: 1;
+            padding: 20px;
+        }
+
+        .news-img-box {
+            order: 2;
+
+            width: 100%;
+            max-height: 360px;
+
+            transform: none;
+            cursor: pointer;
+        }
+
+        .news-img {
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* reset degli zoom/shift desktop, o diventano ingestibili su mobile */
+        .news-img1,
+        .news-img2 {
+            transform: none;
+        }
+
+        /* linea sotto ogni news da separare */
+        .news-item:first-of-type {
+            padding-bottom: 32px;
+            margin-bottom: 32px;
+        }
+
+        .news-item:first-of-type::after {
+            left: 5%;
+            right: 5%;
+            bottom: 0;
         }
 
         /*
