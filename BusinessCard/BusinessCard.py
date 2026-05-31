@@ -6,6 +6,8 @@ from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
 
+import numpy as np
+from PIL import Image
 
 # ============================================================
 # PATH
@@ -23,6 +25,7 @@ ICONS_DIR = (BASE_DIR / "../assets/images/icons").resolve()
 LINKEDIN_ICON = (ICONS_DIR / "linkedin.png").resolve()
 GITHUB_ICON = (ICONS_DIR / "github.png").resolve()
 ORCID_ICON = (ICONS_DIR / "ORCID.png").resolve()
+
 
 # ============================================================
 # FONT
@@ -427,6 +430,80 @@ draw_tracking_text(
     tracking
 )
 
+##################################
+
+def get_visible_bbox(path, ignore_right_fraction=0.0):
+    """
+    Trova il bounding box dei pixel visibili/non bianchi.
+    ignore_right_fraction serve SOLO per il calcolo dell'allineamento,
+    non taglia l'immagine.
+    """
+
+    img = Image.open(path).convert("RGBA")
+    arr = np.array(img)
+
+    alpha = arr[:, :, 3]
+    rgb = arr[:, :, :3]
+
+    visible = alpha > 20
+    non_white = np.any(rgb < 245, axis=2)
+
+    mask = visible & non_white
+
+    if ignore_right_fraction > 0:
+        max_x = int(img.width * (1 - ignore_right_fraction))
+        mask[:, max_x:] = False
+
+    ys, xs = np.where(mask)
+
+    return xs.min(), ys.min(), xs.max(), ys.max(), img.width, img.height
+
+def draw_icon_aligned_by_visible_part(
+    c,
+    path,
+    align_center_x,
+    center_y,
+    max_w,
+    max_h,
+    ignore_right_fraction=0.0
+):
+    """
+    Disegna tutta l'icona, ma centra solo la parte visibile principale.
+    Utile per LinkedIn con il marchio ®.
+    """
+
+    img = ImageReader(str(path))
+    img_w, img_h = img.getSize()
+
+    x0, y0, x1, y1, pil_w, pil_h = get_visible_bbox(
+        path,
+        ignore_right_fraction=ignore_right_fraction
+    )
+
+    visible_w = x1 - x0
+    visible_h = y1 - y0
+
+    # Scala rispetto alla parte principale visibile
+    ratio = min(max_w / visible_w, max_h / visible_h)
+
+    draw_w = img_w * ratio
+    draw_h = img_h * ratio
+
+    visible_center_x = ((x0 + x1) / 2) * ratio
+    visible_center_y = ((pil_h - (y0 + y1) / 2)) * ratio
+
+    draw_x = align_center_x - visible_center_x
+    draw_y = center_y - visible_center_y
+
+    c.drawImage(
+        img,
+        draw_x,
+        draw_y,
+        width=draw_w,
+        height=draw_h,
+        mask="auto"
+    )
+
 
 def get_fitted_icon_size(path, max_w, max_h):
     """
@@ -525,13 +602,14 @@ github_center_y = orcid_center_y + orcid_h / 2 + gap + github_h / 2
 linkedin_center_y = github_center_y + github_h / 2 + gap + linkedin_h / 2
 
 # Disegno centrato
-draw_icon_centered(
+draw_icon_aligned_by_visible_part(
     back,
     LINKEDIN_ICON,
     icon_center_x,
     linkedin_center_y,
-    linkedin_max_w,
-    linkedin_max_h
+    4.2 * mm,
+    4.2 * mm,
+    ignore_right_fraction=0.16
 )
 
 draw_icon_centered(
