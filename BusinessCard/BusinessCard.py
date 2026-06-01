@@ -15,7 +15,7 @@ from PIL import Image
 
 BASE_DIR = Path(__file__).resolve().parent
 
-QR_PATH = (BASE_DIR / "../assets/images/QrCode/qr_with_logo.png").resolve()
+QR_PATH = (BASE_DIR / "../assets/images/QrCode/qr_with_logo_2.png").resolve()
 
 FRONT_PDF_PATH = (BASE_DIR / "business_card_front.pdf").resolve()
 BACK_PDF_PATH = (BASE_DIR / "business_card_back.pdf").resolve()

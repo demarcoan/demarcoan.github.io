@@ -1,5 +1,7 @@
 from pathlib import Path
-from PIL import Image, ImageDraw
+
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
 
 
 # ============================================================
@@ -25,6 +27,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 # ============================================================
 
 BLUE = "#253D8B"
+WHITE = "#FFFFFF"
 
 CANVAS_SIZE = 1024
 
@@ -43,6 +46,28 @@ BADGE_SHAPE = "pinch"
 
 
 # ------------------------------------------------------------
+# CORNICE / SFONDO INTERNO
+# ------------------------------------------------------------
+# True  = aggiunge cornice bianca esterna al logo
+# False = nessuna cornice
+
+ADD_LOGO_FRAME = True
+
+# True  = le zone interne trasparenti della goccia diventano bianche
+# False = restano trasparenti
+
+FILL_INTERNAL_TRANSPARENCY_WITH_WHITE = True
+
+# Larghezza cornice esterna in punti
+FRAME_WIDTH_PT = 10
+
+# DPI usati per convertire punti -> pixel
+# 4 pt a 300 dpi = circa 17 px
+
+FRAME_DPI = 1000
+
+
+# ------------------------------------------------------------
 # ELEMENTI INTERNI
 # ------------------------------------------------------------
 # "network" = solo rete
@@ -56,20 +81,18 @@ ELEMENTS_TO_DRAW = "network"
 # RETE
 # ------------------------------------------------------------
 
-CONTENT_SCALE = 0.42
+CONTENT_SCALE = 0.3
 
-SHIFT_X_RATIO = -0.165     # positivo = destra
-SHIFT_Y_RATIO = 0.05     # positivo = giù
+SHIFT_X_RATIO = -0.165    # positivo = destra
+SHIFT_Y_RATIO = 0.03      # positivo = giù
 
 
 # ------------------------------------------------------------
 # SAGOMA BLU A GOCCIA
 # ------------------------------------------------------------
 
-# Quanto grande deve essere la sagoma blu rispetto al canvas
 PINCH_BADGE_SCALE = 1.05
 
-# Spostamento della sagoma blu
 PINCH_BADGE_SHIFT_X_RATIO = 0.00
 PINCH_BADGE_SHIFT_Y_RATIO = 0.00
 
@@ -82,6 +105,13 @@ DROPLET_SCALE = 0.38
 
 DROPLET_SHIFT_X_RATIO = -0.19
 DROPLET_SHIFT_Y_RATIO = 0.19
+
+
+# ------------------------------------------------------------
+# CENTRATURA FINALE SU CANVAS
+# ------------------------------------------------------------
+
+FINAL_PADDING_RATIO = 0.0
 
 
 # ============================================================
@@ -100,6 +130,27 @@ def hex_to_rgba(hex_color, alpha=255):
     b = int(hex_color[4:6], 16)
 
     return (r, g, b, alpha)
+
+
+def pt_to_px(points, dpi):
+    """
+    Converte punti tipografici in pixel.
+
+    1 pt = 1/72 inch.
+    """
+
+    return int(round(points * dpi / 72))
+
+
+def get_frame_width_px():
+    """
+    Restituisce la larghezza della cornice in pixel.
+    """
+
+    if ADD_LOGO_FRAME:
+        return pt_to_px(FRAME_WIDTH_PT, FRAME_DPI)
+
+    return 0
 
 
 def crop_to_content(img):
@@ -122,13 +173,8 @@ def crop_to_content(img):
 
 def center_and_fit_to_canvas(img, canvas_size, padding_ratio=0.03):
     """
-    Prende l'immagine finale, ritaglia tutto il contenuto non trasparente,
-    lo riscalo al massimo spazio disponibile e lo ricentra nella canvas.
-
-    padding_ratio:
-    - 0.00 = occupa tutto lo spazio possibile
-    - 0.03 = lascia un piccolo margine del 3%
-    - 0.06 = lascia più aria intorno
+    Ritaglia il contenuto non trasparente, lo riscalo
+    e lo ricentra nella canvas finale.
     """
 
     img = img.convert("RGBA")
@@ -170,6 +216,7 @@ def center_and_fit_to_canvas(img, canvas_size, padding_ratio=0.03):
     final_img.alpha_composite(resized, (x, y))
 
     return final_img
+
 
 def prepare_icon(img_path, final_size):
     """
@@ -235,36 +282,328 @@ def create_blue_circle(size):
     return badge
 
 
-def create_blue_shape_from_png(shape_path, size, scale=1.0, shift_x_ratio=0.0, shift_y_ratio=0.0):
+def fill_inside_closed_shape(alpha_mask):
     """
-    Usa una PNG trasparente come maschera.
-    La sagoma viene colorata di blu.
+    Riempie l'interno di una forma chiusa.
 
-    In pratica:
-    - prende l'alpha della goccia bianca
-    - lo usa come maschera
-    - riempie quella maschera con BLUE
+    Serve per trasformare:
+    - una goccia fatta solo da contorno
+
+    in:
+    - una maschera piena che include anche l'interno.
+
+    Questa maschera viene usata per fare lo sfondo bianco interno.
     """
 
-    shape = Image.open(shape_path).convert("RGBA")
-    shape = crop_to_content(shape)
+    alpha_mask = alpha_mask.convert("L")
+    arr = np.array(alpha_mask)
 
-    target_size = int(size * scale)
+    solid = arr > 10
+
+    h, w = solid.shape
+
+    outside = np.zeros((h, w), dtype=bool)
+
+    stack = []
+
+    for x in range(w):
+        if not solid[0, x]:
+            outside[0, x] = True
+            stack.append((0, x))
+
+        if not solid[h - 1, x]:
+            outside[h - 1, x] = True
+            stack.append((h - 1, x))
+
+    for y in range(h):
+        if not solid[y, 0]:
+            outside[y, 0] = True
+            stack.append((y, 0))
+
+        if not solid[y, w - 1]:
+            outside[y, w - 1] = True
+            stack.append((y, w - 1))
+
+    while stack:
+        y, x = stack.pop()
+
+        neighbours = [
+            (y - 1, x),
+            (y + 1, x),
+            (y, x - 1),
+            (y, x + 1)
+        ]
+
+        for ny, nx in neighbours:
+            if 0 <= ny < h and 0 <= nx < w:
+                if not solid[ny, nx] and not outside[ny, nx]:
+                    outside[ny, nx] = True
+                    stack.append((ny, nx))
+
+    filled = ~outside
+
+    filled_arr = (filled.astype(np.uint8) * 255)
+
+    return Image.fromarray(filled_arr, mode="L")
+
+
+def create_white_internal_fill_from_alpha(alpha_mask):
+    """
+    Crea il bianco interno del logo.
+
+    Usa una maschera piena della goccia:
+    tutto ciò che era trasparente dentro la goccia diventa bianco.
+    """
+
+    filled_alpha = fill_inside_closed_shape(alpha_mask)
+
+    white_fill = Image.new(
+        "RGBA",
+        alpha_mask.size,
+        hex_to_rgba(WHITE, 255)
+    )
+
+    white_fill.putalpha(filled_alpha)
+
+    return white_fill
+
+
+def create_external_white_frame_from_alpha(alpha_mask, frame_width_px):
+    """
+    Crea una cornice bianca esterna intorno al logo.
+
+    La cornice è solo esterna:
+    prende la maschera del logo, la espande,
+    e sottrae la maschera originale.
+    """
+
+    alpha_mask = alpha_mask.convert("L")
+
+    kernel_size = 2 * frame_width_px + 1
+
+    expanded_alpha = alpha_mask.filter(
+        ImageFilter.MaxFilter(kernel_size)
+    )
+
+    expanded_arr = np.array(expanded_alpha).astype(np.int16)
+    original_arr = np.array(alpha_mask).astype(np.int16)
+
+    frame_arr = np.clip(
+        expanded_arr - original_arr,
+        0,
+        255
+    ).astype(np.uint8)
+
+    frame_alpha = Image.fromarray(frame_arr, mode="L")
+
+    white_frame = Image.new(
+        "RGBA",
+        alpha_mask.size,
+        hex_to_rgba(WHITE, 255)
+    )
+
+    white_frame.putalpha(frame_alpha)
+
+    return white_frame
+
+
+def create_colored_shape_from_alpha(alpha_mask, color):
+    """
+    Crea una forma colorata usando una maschera alpha.
+    """
+
+    colored_shape = Image.new(
+        "RGBA",
+        alpha_mask.size,
+        hex_to_rgba(color, 255)
+    )
+
+    colored_shape.putalpha(alpha_mask)
+
+    return colored_shape
+
+def create_blue_shape_from_png(
+    shape_path,
+    size,
+    scale=1.0,
+    shift_x_ratio=0.0,
+    shift_y_ratio=0.0,
+    add_logo_frame=False,
+    fill_internal_transparency=False,
+    frame_width_pt=4,
+    frame_dpi=300
+):
+    """
+    Crea la goccia/logo.
+
+    Metodo:
+    1. crea la sagoma bianca esterna più grande
+    2. crea eventualmente il riempimento bianco interno
+    3. rimette sopra il logo blu originale
+    4. allinea logo blu e cornice usando il centro reale delle sagome
+    """
+
+    frame_width_px = pt_to_px(frame_width_pt, frame_dpi) if add_logo_frame else 0
+
+    # Dimensione totale del blocco: cornice inclusa
+    local_size = int(size * scale)
+
+    if local_size <= 0:
+        raise ValueError("local_size non valido.")
+
+    # Dimensione del logo blu interno
+    inner_size = local_size - 2 * frame_width_px
+
+    if inner_size <= 0:
+        raise ValueError("La cornice è troppo grande rispetto alla goccia.")
+
+    # ========================================================
+    # LOGO INTERNO
+    # ========================================================
 
     shape_resized = prepare_icon(
         img_path=shape_path,
-        final_size=target_size
+        final_size=inner_size
     )
 
-    alpha = shape_resized.getchannel("A")
+    alpha_original_inner = shape_resized.getchannel("A")
 
-    blue_shape = Image.new(
+    # Sagoma piena del logo interno
+    silhouette_inner = fill_inside_closed_shape(alpha_original_inner)
+
+    # ========================================================
+    # SAGOMA ESTERNA BIANCA
+    # ========================================================
+
+    # Cornice ottenuta ingrandendo la sagoma piena,
+    # NON dilatandola con MaxFilter.
+    outer_silhouette = silhouette_inner.resize(
+        (local_size, local_size),
+        Image.Resampling.LANCZOS
+    )
+
+    local_shape = Image.new(
         "RGBA",
-        shape_resized.size,
-        hex_to_rgba(BLUE, 255)
+        (local_size, local_size),
+        (0, 0, 0, 0)
     )
 
-    blue_shape.putalpha(alpha)
+    # ========================================================
+    # FUNZIONE INTERNA: CENTRO DELLA BBOX
+    # ========================================================
+
+    def bbox_center(alpha):
+        """
+        Restituisce il centro reale del contenuto non trasparente.
+        """
+
+        bbox = alpha.getbbox()
+
+        if bbox is None:
+            raise ValueError("Maschera vuota.")
+
+        left, top, right, bottom = bbox
+
+        cx = (left + right) / 2
+        cy = (top + bottom) / 2
+
+        return cx, cy
+
+    # Centro reale della sagoma bianca esterna
+    outer_cx, outer_cy = bbox_center(outer_silhouette)
+
+    # Centro reale del logo blu interno
+    inner_cx, inner_cy = bbox_center(alpha_original_inner)
+
+    # Offset necessario per far coincidere i centri reali
+    inner_x = int(round(outer_cx - inner_cx))
+    inner_y = int(round(outer_cy - inner_cy))
+
+    # Micro-correzioni opzionali.
+    # positivo = destra / giù
+    INNER_LOGO_FINE_SHIFT_X = 0
+    INNER_LOGO_FINE_SHIFT_Y = 15
+
+    inner_x += INNER_LOGO_FINE_SHIFT_X
+    inner_y += INNER_LOGO_FINE_SHIFT_Y
+
+    # ========================================================
+    # 1. BIANCO: CORNICE + INTERNO
+    # ========================================================
+
+    if add_logo_frame:
+        if fill_internal_transparency:
+            # Bianco pieno sotto tutta la sagoma esterna:
+            # fa sia cornice esterna sia interno bianco.
+            white_alpha = outer_silhouette
+
+        else:
+            # Solo cornice esterna:
+            # sagoma esterna - sagoma interna.
+            inner_silhouette_on_local = Image.new(
+                "L",
+                (local_size, local_size),
+                0
+            )
+
+            inner_silhouette_on_local.paste(
+                silhouette_inner,
+                (inner_x, inner_y)
+            )
+
+            outer_arr = np.array(outer_silhouette).astype(np.int16)
+            inner_arr = np.array(inner_silhouette_on_local).astype(np.int16)
+
+            frame_arr = np.clip(
+                outer_arr - inner_arr,
+                0,
+                255
+            ).astype(np.uint8)
+
+            white_alpha = Image.fromarray(frame_arr, mode="L")
+
+        white_layer = Image.new(
+            "RGBA",
+            (local_size, local_size),
+            hex_to_rgba(WHITE, 255)
+        )
+
+        white_layer.putalpha(white_alpha)
+
+        local_shape.alpha_composite(white_layer, (0, 0))
+
+    else:
+        if fill_internal_transparency:
+            white_internal = Image.new(
+                "RGBA",
+                (inner_size, inner_size),
+                hex_to_rgba(WHITE, 255)
+            )
+
+            white_internal.putalpha(silhouette_inner)
+
+            local_shape.alpha_composite(
+                white_internal,
+                (inner_x, inner_y)
+            )
+
+    # ========================================================
+    # 2. LOGO BLU ORIGINALE SOPRA
+    # ========================================================
+
+    blue_logo_inner = create_colored_shape_from_alpha(
+        alpha_mask=alpha_original_inner,
+        color=BLUE
+    )
+
+    local_shape.alpha_composite(
+        blue_logo_inner,
+        (inner_x, inner_y)
+    )
+
+    # ========================================================
+    # 3. POSIZIONAMENTO SULLA CANVAS FINALE
+    # ========================================================
 
     badge = Image.new(
         "RGBA",
@@ -272,13 +611,13 @@ def create_blue_shape_from_png(shape_path, size, scale=1.0, shift_x_ratio=0.0, s
         (0, 0, 0, 0)
     )
 
-    x = (size - target_size) // 2
-    y = (size - target_size) // 2
+    x = (size - local_size) // 2
+    y = (size - local_size) // 2
 
     x += int(size * shift_x_ratio)
     y += int(size * shift_y_ratio)
 
-    badge.alpha_composite(blue_shape, (x, y))
+    badge.alpha_composite(local_shape, (x, y))
 
     return badge
 
@@ -300,16 +639,24 @@ def create_blue_badge(size, badge_shape="circle"):
         )
 
     if badge_shape == "circle":
-        return create_blue_circle(size)
+        badge = create_blue_circle(size)
+
+        return badge
 
     if badge_shape == "pinch":
-        return create_blue_shape_from_png(
+        badge = create_blue_shape_from_png(
             shape_path=DROPLET_PATH,
             size=size,
             scale=PINCH_BADGE_SCALE,
             shift_x_ratio=PINCH_BADGE_SHIFT_X_RATIO,
-            shift_y_ratio=PINCH_BADGE_SHIFT_Y_RATIO
+            shift_y_ratio=PINCH_BADGE_SHIFT_Y_RATIO,
+            add_logo_frame=ADD_LOGO_FRAME,
+            fill_internal_transparency=FILL_INTERNAL_TRANSPARENCY_WITH_WHITE,
+            frame_width_pt=FRAME_WIDTH_PT,
+            frame_dpi=FRAME_DPI
         )
+
+        return badge
 
 
 def create_badge_from_png(
@@ -358,7 +705,7 @@ def create_badge_from_png(
         badge.alpha_composite(network_resized, (x, y))
 
     # ========================================================
-    # GOCCIA BIANCA INTERNA
+    # GOCCIA BIANCA INTERNA COME ELEMENTO GRAFICO
     # ========================================================
 
     if elements_to_draw in ["droplet", "both"]:
@@ -385,10 +732,11 @@ def create_badge_from_png(
     badge = center_and_fit_to_canvas(
         img=badge,
         canvas_size=size,
-        padding_ratio=0.00
+        padding_ratio=FINAL_PADDING_RATIO
     )
 
     badge.save(output_path)
+
 
 def export_resized_versions(master_path):
     """
@@ -416,9 +764,12 @@ def create_all_versions():
     Crea il badge master e le versioni ridimensionate.
     """
 
+    frame_label = "frame" if ADD_LOGO_FRAME else "noframe"
+    fill_label = "whiteinside" if FILL_INTERNAL_TRANSPARENCY_WITH_WHITE else "transparentinside"
+
     master_path = (
         OUTPUT_DIR
-        / f"{OUTPUT_BASENAME}_{BADGE_SHAPE}_{ELEMENTS_TO_DRAW}_master_{CANVAS_SIZE}.png"
+        / f"{OUTPUT_BASENAME}_{BADGE_SHAPE}_{ELEMENTS_TO_DRAW}_{frame_label}_{fill_label}_master_{CANVAS_SIZE}.png"
     )
 
     create_badge_from_png(
@@ -435,6 +786,10 @@ def create_all_versions():
     print("Done.")
     print(f"Badge shape: {BADGE_SHAPE}")
     print(f"Elements drawn: {ELEMENTS_TO_DRAW}")
+    print(f"Add logo frame: {ADD_LOGO_FRAME}")
+    print(f"Fill internal transparency with white: {FILL_INTERNAL_TRANSPARENCY_WITH_WHITE}")
+    print(f"Frame width: {FRAME_WIDTH_PT} pt")
+    print(f"Frame width in px: {pt_to_px(FRAME_WIDTH_PT, FRAME_DPI)} px at {FRAME_DPI} dpi")
     print(f"Network used: {NETWORK_PATH}")
     print(f"Droplet shape used: {DROPLET_PATH}")
     print(f"Files saved in: {OUTPUT_DIR}")

@@ -12,11 +12,11 @@ URL = "https://demarcoan.github.io/"
 
 BASE_DIR = Path(__file__).resolve().parent
 
-LOGO_PATH = (BASE_DIR / "../assets/images/logos/definitiva_cerchio_centered.png").resolve()
-OUTPUT_PATH = (BASE_DIR / "../assets/images/QrCode/qr_with_logo.png").resolve()
+LOGO_PATH = (BASE_DIR / "../assets/images/logos/email_icon/logo_mark_network_badge_pinch_network_frame_whiteinside_master_1024.png").resolve()
+OUTPUT_PATH = (BASE_DIR / "../assets/images/QrCode/qr_with_logo_2.png").resolve()
 
 QR_SIZE_CM = 5.4
-LOGO_SIZE_CM = 2.2
+LOGO_SIZE_CM = 2.5
 
 DPI = 1000
 SUPERSAMPLING = 10
