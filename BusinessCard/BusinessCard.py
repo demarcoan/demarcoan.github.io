@@ -351,7 +351,7 @@ draw_link_text(
     back,
     6.5 * mm,
     28.5 * mm,
-    "https://demarcoan.github.io/",
+    "demarcoan.github.io",
     "NotoSerif",
     9,
     WHITE
