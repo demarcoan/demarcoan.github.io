@@ -364,9 +364,16 @@
                     <p class="cv-entry-details">
                         Organizers: Andrea de Marco, R. Anversa, S. Marchetti, M. Barbieri, A. Andreetto, T. Sekulić, S. Agnoli
                     </p>
-                    <p class="cv-entry-details">
-                        Invited Speakers: R. Cerbino (University of Vienna), Giorgia Daniel (FIAMM Energy Technology S.p.A.), Elia Scattolo (Fondazione Bruno Kessler)
-                    </p>
+                    <div class="cv-entry-details cv-speakers">
+                        <span class="cv-speakers-label">Invited Speakers:</span>
+
+                        <span class="cv-speakers-list">
+                            <span class="speaker">R. Cerbino (University of Vienna)</span>,
+                            <span class="speaker">Giorgia Daniel (FIAMM Energy Technology S.p.A.)</span>,
+                            <span class="speaker">Maria Chiara Frare (Stevanato Group)</span>,
+                            <span class="speaker">Elia Scattolo (Fondazione Bruno Kessler)</span>
+                        </span>
+                    </div>
                     <p class="cv-entry-details">
                         30th June - 2nd July 2026, Padova
                     </p>
@@ -391,6 +398,30 @@
                     </p>
                 </div>
             </div>
+
+            <div class="cv-section-content">
+                <div class="cv-entry">
+                    <h3 class="cv-entry-title">
+                        Short-Courses preceding Microfluidic Horizons 2026 
+                    </h3>
+                    <p class="cv-entry-details">
+                        Exploring Frontiers in Physical, Chemical & Biomedical Sciences
+                    </p>
+                    <p class="cv-entry-details">
+                        16th and 17th May 2026, Padova
+                    </p>
+                    <p class="cv-entry-details">
+                        <button 
+                            class="certificate-link"
+                            type="button"
+                            data-pdf="../assets/images/Certificates/ShCourses_Certificate_of_Examination_Andrea_de_Marco.pdf"
+                        >
+                            View certificate
+                        </button>
+                    </p>
+                </div>
+            </div>
+
             <div class="cv-section-content">
                 <div class="cv-entry">
                         <h3 class="cv-entry-title">
@@ -417,10 +448,60 @@
                 </p>
             </div>
         </section> -->
-    
+        
+        <section id="certifications" class="page-cv">
+            <h2 class="cv-section-title">Additional Certifications</h2>
+
+            <div class="cv-section-content">
+                <div class="cv-entry badge-entry">
+                    <a 
+                        class="open-badge-link"
+                        href="https://bestr.it/award/show/b43e947f6b7405fff3ed4e5f2440979682f918f6?ln=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img 
+                            class="open-badge-img"
+                            src="https://bestr.it/filemanager/show/8f91f2be-8194-422b-8166-4d71f2ae20f8.png"
+                            alt="Open Badge - Padova fa battere il cuore"
+                        >
+
+                        <div class="open-badge-text">
+                            <h3 class="cv-entry-title">
+                                Padova fa battere il cuore
+                            </h3>
+
+                            <p class="cv-entry-details">
+                                Open Badge in cardiopulmonary resuscitation training
+                            </p>
+
+                            <p class="cv-entry-details">
+                                University of Padova
+                            </p>
+                            
+                            <p class="cv-entry-details">
+                                30th November 2017
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
     
     <div data-include="../components/footer.html"></div>
+
+    <div id="pdf-modal" class="pdf-modal">
+        <span class="pdf-modal-close">&times;</span>
+
+        <iframe 
+            class="pdf-modal-content"
+            id="pdf-modal-frame"
+            src=""
+            title="Certificate PDF"
+        ></iframe>
+    </div>
+
     <script src="../script.js"></script>
 
     <button class="back-to-top" type="button" aria-label="Back to top">

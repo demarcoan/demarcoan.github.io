@@ -962,6 +962,109 @@
         padding-left: 22px;
     }
 
+    .cv-speakers {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 5px;
+    align-items: start;
+    }
+
+    .cv-speakers-label {
+        white-space: nowrap;
+    }
+
+    .cv-speakers-list {
+        display: block;
+    }
+
+    .speaker {
+        white-space: nowrap;
+    }
+
+    .open-badge-link {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+
+        width: fit-content;
+        max-width: 100%;
+
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .open-badge-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        flex: 0 0 auto;
+    }
+
+    .open-badge-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .certificate-link {
+        margin-top: 4px;
+        padding: 0;
+
+        border: none;
+        background: none;
+
+        color: #253D8B;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 500;
+
+        text-decoration: underline;
+        text-underline-offset: 3px;
+
+        cursor: pointer;
+    }
+
+    .certificate-link:hover {
+        opacity: 0.75;
+    }
+
+    .pdf-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        inset: 0;
+
+        background-color: rgba(0, 0, 0, 0.85);
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 28px;
+    }
+
+    .pdf-modal-content {
+        width: min(90vw, 900px);
+        height: 88vh;
+
+        border: none;
+        border-radius: 12px;
+
+        background-color: white;
+    }
+
+    .pdf-modal-close {
+        position: absolute;
+        top: 22px;
+        right: 34px;
+
+        color: white;
+        font-size: 42px;
+        font-weight: 300;
+
+        cursor: pointer;
+    }
+
+
     .back-to-top {
         position: fixed;
 
@@ -2064,6 +2167,47 @@
             text-align: justify;
         }
 
+       .cv-speakers {
+            display: block;
+        }
+
+        .cv-speakers-label,
+        .cv-speakers-list {
+            display: inline;
+        }
+
+        .speaker {
+            white-space: normal;
+        }
+
+        .open-badge-link {
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .open-badge-img {
+            width: 55px;
+            height: 55px;
+        }
+
+        .open-badge-text .cv-entry-details {
+            padding-left: 0;
+        }
+
+        .pdf-modal {
+            padding: 18px;
+        }
+
+        .pdf-modal-content {
+            width: 96vw;
+            height: 82vh;
+        }
+
+        .pdf-modal-close {
+            top: 12px;
+            right: 20px;
+            font-size: 38px;
+        }
 
         /*
             Freccia back to top.

@@ -49,3 +49,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const pdfModal = document.getElementById("pdf-modal");
+    const pdfFrame = document.getElementById("pdf-modal-frame");
+    const pdfClose = document.querySelector(".pdf-modal-close");
+
+    if (!pdfModal || !pdfFrame || !pdfClose) {
+        return;
+    }
+
+    document.querySelectorAll(".certificate-link").forEach(button => {
+        button.addEventListener("click", () => {
+            const pdfPath = button.getAttribute("data-pdf");
+
+            pdfFrame.src = pdfPath;
+            pdfModal.style.display = "flex";
+        });
+    });
+
+    pdfClose.addEventListener("click", () => {
+        pdfModal.style.display = "none";
+        pdfFrame.src = "";
+    });
+
+    pdfModal.addEventListener("click", event => {
+        if (event.target === pdfModal) {
+            pdfModal.style.display = "none";
+            pdfFrame.src = "";
+        }
+    });
+});
