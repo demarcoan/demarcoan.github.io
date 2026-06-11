@@ -1273,7 +1273,7 @@
 
         .cv-section-title {
             width: clamp(420px, 42vw, 650px);
-            font-size: 40px;
+            font-size: 30px;
         }
 
         .cv-section-content {
@@ -1291,7 +1291,7 @@
             margin: 0 0 6px 0;
 
             color: #253D8B;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 600;
             line-height: 1.25;
             text-align: left;
@@ -1301,7 +1301,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 400;
             line-height: 1.5;
             padding-left: 30px;
@@ -1312,7 +1312,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 21px;
+            font-size: 17px;
             font-weight: 400;
             line-height: 2.5;
             text-align: left;
@@ -1323,7 +1323,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 300;
             line-height: 1.5;
             padding-left: 30px;
@@ -1334,7 +1334,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 500;
             line-height: 1.5;
             padding-left: 30px;
@@ -1353,7 +1353,7 @@
             padding: 40px 0 20px 0;
 
             color: #253D8B;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 600;
             line-height: 1.25;
             text-align: left;
@@ -1366,7 +1366,7 @@
         .cv-presentation-category::before {
             content: "•";
             flex: 0 0 auto;
-            font-size: 35px;
+            font-size: 25px;
             line-height: 0.7;
         }
 
@@ -1374,7 +1374,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 600;
             
             line-height: 1.5;
@@ -1386,7 +1386,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 600;
             
             line-height: 1.5;
@@ -1399,7 +1399,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 500;
             font-style: italic;
             line-height: 1.5;
@@ -1411,7 +1411,7 @@
             margin: 0;
 
             color: #253D8B;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 200;
             line-height: 1.5;
             text-align: left;
@@ -1436,7 +1436,7 @@
             background-color: #eeeeee;
             color: #253D8B;
 
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 400;
             line-height: 1;
 
