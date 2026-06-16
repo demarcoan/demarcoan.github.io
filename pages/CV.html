@@ -198,28 +198,73 @@
         <section id="publications" class="page-cv">
             <h2 class="cv-section-title">Publications</h2>
 
-            <!-- <div class="cv-section-content">
-                <div class="cv-entry">
-                    <h3 class="cv-entry-title">
-                        [1]
-                    </h3>
-                    <span class="cv-meta-place">
-                        Authors:
-                    </span>
-                    <span class="cv-meta-auth">"Tizio Caio Sempronio"</span>
-                    
-                    <div class="cv-entry-meta">
-                        <div class="cv-meta-label">Journal:</div>
-                        <div class="cv-meta-value">Paperino</div>
+            <div class="cv-section-content">
+                <div class="cv-entry article-entry">
 
-                        <div class="cv-meta-label">Date:</div>
-                        <div class="cv-meta-value">202X</div>
+                    <div class="article-title-row">
+                        <span class="article-number">[1]</span>
 
-                        <div class="cv-meta-label">DOI:</div>
-                        <div class="cv-meta-value">10.xxxx/xxxxx</div>
+                        <h3 class="article-title">
+                            From Trajectories to Wave Vectors: Benchmarking DDM Signatures of Non-Gaussian and Anomalous Diffusion
+                        </h3>
                     </div>
+
+                        <div class="article-meta-row">
+                            <span class="article-meta-label">Authors:</span>
+
+                            <span 
+                                class="article-authors author-list"
+                                data-authors='[
+                                    {"name": "Andrea de Marco", "orcid": "0009-0000-6246-5602", "bold": true},
+                                    {"name": "Giuseppe Pesce", "orcid": "0000-0001-5616-8599"},
+                                    {"name": "Raffaele Pastore", "orcid": "0000-0002-8335-9961"},
+                                    {"name": "Matteo Pierno", "orcid": "0000-0002-8973-0338"}
+                                ]'
+                            ></span>
+                        </div>
+
+                        <div class="article-meta-row article-status-row">
+                            <span class="article-status">In preparation</span>
+                        </div>
+
                 </div>
-            </div> -->
+                
+                <div class="cv-entry article-entry">
+
+                    <div class="article-title-row">
+                        <span class="article-number">[2]</span>
+
+                        <h3 class="article-title">
+                            Solid microparticle dynamics in flowing droplets and consequences in confined enzymatic chemical reactions
+                        </h3>
+                    </div>
+
+                        <div class="article-meta-row">
+                            <span class="article-meta-label">Authors:</span>
+
+                            <span 
+                                class="article-authors author-list"
+                                data-authors='[
+                                    {"name": "Beatrice Crestani", "orcid": "0009-0009-4987-0377"},
+                                    {"name": "Noemi Torriero", "orcid": ""},
+                                    {"name": "Maede Pajouhande", "orcid": "0009-0008-3971-9828"},
+                                    {"name": "Chiara Maceri", "orcid": ""},
+                                    {"name": "Andrea de Marco", "orcid": "0009-0000-6246-5602", "bold": true},
+                                    {"name": "Rebecca Legnaro", "orcid": ""},
+                                    {"name": "Matteo Pierno", "orcid": "0000-0002-8973-0338"},
+                                    {"name": "Giampaolo Mistura", "orcid": "0000-0002-3426-5475"},
+                                    {"name": "Davide Ferraro", "orcid": "0000-0002-6760-7988"}
+                                ]'
+                            ></span>
+                        </div>
+
+                        <div class="article-meta-row article-status-row">
+                            <span class="article-status">Submitted: Droplet - Wiley</span>                            
+                        </div>
+
+                </div>
+
+            </div>
 
         </section>
 
@@ -561,4 +606,56 @@
         });
     </script>
 
+    <script>
+        function getOrcidUrl(orcid) {
+            if (!orcid) return "";
+
+            return orcid.startsWith("http")
+                ? orcid
+                : `https://orcid.org/${orcid}`;
+        }
+
+        function formatAuthors(authors) {
+            return authors.map(function(author, index) {
+                const isLast = index === authors.length - 1;
+                const isSecondLast = index === authors.length - 2;
+
+                let separator = "";
+
+                if (!isLast) {
+                    separator = isSecondLast ? ", and " : ", ";
+                }
+
+                const nameHTML = author.bold
+                    ? `<b>${author.name}</b>`
+                    : author.name;
+                
+                const orcidUrl = getOrcidUrl(author.orcid);
+                const orcidHTML = orcidUrl
+                    ? `
+                        <a 
+                            class="orcid-author-link"
+                            href="${orcidUrl}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="${author.name} ORCID"
+                        >
+                            <img 
+                                class="orcid-author-icon"
+                                src="../assets/images/icons/ORCID.png"
+                                alt="ORCID iD"
+                            >
+                        </a>
+                    `
+                    : "";
+
+                return `${nameHTML}${orcidHTML}${separator}`;
+            }).join("");
+        }
+
+        document.querySelectorAll(".author-list").forEach(function(element) {
+            const authors = JSON.parse(element.dataset.authors);
+            element.innerHTML = formatAuthors(authors);
+        });
+    </script>
 </body>

@@ -854,6 +854,27 @@
         line-height: 1;
     }
 
+    .cv-entry-institution {
+        display: grid;
+
+        /*
+            Prima colonna: larghezza fissa per le label.
+            Seconda colonna: prende lo spazio restante.
+        */
+        grid-template-columns: 90px 1fr;
+        
+        padding-left: 7px;
+        column-gap: 14px;
+        row-gap: 4px;
+
+        margin-top: 10px;
+
+        color: #253D8B;
+        font-size: 12px;
+        font-style: italic;
+        line-height: 1;
+    }
+
     .cv-meta-place {
         margin: 0;
 
@@ -882,6 +903,125 @@
         font-weight: 400;
     }
 
+    /* =========================
+    CV - Publications
+    ========================= */
+
+    .article-entry {
+        --article-number-col: 2em;
+        --article-gap: 0px;
+        --article-details-extra-indent: 21px;
+
+        --article-details-indent: calc(
+            var(--article-number-col) + 
+            var(--article-gap) + 
+            var(--article-details-extra-indent)
+        );
+
+        width: 100%;
+        max-width: 100%;
+
+        margin-bottom: 34px;
+    }
+
+    .article-entry:last-child {
+        margin-bottom: 6px;
+    }
+
+    .article-title-row {
+        display: grid;
+        grid-template-columns: var(--article-number-col) minmax(0, 1fr);
+        column-gap: var(--article-gap);
+        align-items: start;
+
+        width: 100%;
+        margin: 0 0 6px 0;
+    }
+
+    .article-number {
+        color: #253D8B;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
+
+    .article-title {
+        margin: 0;
+
+        color: #253D8B;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+
+        text-align: left;
+
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .article-meta-row {
+        display: grid;
+        grid-template-columns: max-content minmax(0, 1fr);
+        column-gap: 7px;
+        align-items: baseline;
+
+        width: calc(100% - var(--article-details-indent));
+        margin-left: var(--article-details-indent);
+        margin-top: 0;
+
+        padding-left: 0;
+    }
+
+    .article-meta-label {
+        color: #253D8B;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .article-authors {
+        color: #253D8B;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+
+        text-align: left;
+
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .article-status-row {
+        margin-top: 4px;
+    }
+
+    .article-status {
+        display: inline-block;
+        width: fit-content;
+
+        color: #253D8B;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.5;
+
+        text-align: left;
+        font-style: italic;
+
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px;
+    }
+
+    /* =========================
+    CV - Presentations
+    ========================= */
+    
     .cv-presentation-group {
         width: min(100vw, 1000px);
         margin: 0 auto 5px auto;
@@ -979,6 +1119,22 @@
 
     .speaker {
         white-space: nowrap;
+    }
+
+    .orcid-author-link {
+        display: inline-block;
+        margin-left: -2px;
+        text-decoration: none;
+        line-height: 1;
+    }
+
+    .orcid-author-icon {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -5px;
     }
 
     .open-badge-link {
@@ -1524,6 +1680,35 @@
             padding-left: 22px;
         }
         
+        .article-entry {
+            --article-number-col: 2.2em;
+            --article-gap: 8px;
+            --article-details-extra-indent: 10px;
+
+            margin-bottom: 42px;
+        }
+
+        .article-entry:last-child {
+            margin-bottom: 6px;
+        }
+
+        .article-number,
+        .article-title {
+            font-size: 18px;
+            line-height: 1.25;
+        }
+
+        .article-meta-label,
+        .article-authors {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .article-status {
+            font-size: 15px;
+        }
+
+        
         .back-to-top {
             position: fixed;
 
@@ -2068,6 +2253,22 @@
             line-height: 1.35;
         }
 
+        .cv-entry-institution {
+            display: grid;
+            grid-template-columns: 58px 1fr;
+
+            padding-left: 15px;
+            column-gap: 7px;
+            row-gap: 4px;
+
+            margin-top: 10px;
+
+            color: #253D8B;
+            font-size: 9px;
+            font-style: italic;
+            line-height: 1.35;
+        }
+        
         .cv-meta-place {
             padding-left: 15px;
 
@@ -2092,6 +2293,52 @@
             font-size: 11px;
             font-weight: 400;
             text-align: justify;
+        }
+        
+        /* CV - Publications mobile */
+
+        .article-entry {
+            --article-number-col: 2.2em;
+            --article-gap: 6px;
+            --article-details-extra-indent: 4px;
+
+            margin-bottom: 26px;
+        }
+
+        .article-entry:last-child {
+            margin-bottom: 6px;
+        }
+
+        .article-title-row {
+            column-gap: var(--article-gap);
+            margin: 0 0 5px 0;
+        }
+
+        .article-number,
+        .article-title {
+            font-size: 12px;
+            line-height: 1.35;
+        }
+
+        .article-meta-row {
+            column-gap: 5px;
+        }
+
+        .article-meta-label,
+        .article-authors {
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .article-status-row {
+            margin-top: 4px;
+        }
+
+        .article-status {
+            font-size: 10.5px;
+            line-height: 1.4;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
         }
 
         /*
